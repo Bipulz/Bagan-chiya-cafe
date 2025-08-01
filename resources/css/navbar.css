@@ -1,0 +1,411 @@
+/* Enhanced Navbar Styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(47, 123, 62, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.navbar.scrolled {
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    border-bottom: 1px solid rgba(47, 123, 62, 0.15);
+}
+
+.navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+.logo-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.logo-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #2f7b3e, #4a9960);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 4px 15px rgba(47, 123, 62, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.logo-icon::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transform: rotate(45deg);
+    transition: all 0.6s ease;
+    opacity: 0;
+}
+
+.navbar-logo:hover .logo-icon {
+    transform: rotate(10deg) scale(1.1);
+    box-shadow: 0 8px 25px rgba(47, 123, 62, 0.4);
+}
+
+.navbar-logo:hover .logo-icon::before {
+    opacity: 1;
+    transform: rotate(45deg) translate3d(100%, 100%, 0);
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+}
+
+.logo-main {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #174f2d;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: -0.02em;
+}
+
+.logo-script {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.4rem;
+    color: #2f7b3e;
+    margin-top: -0.2rem;
+    font-weight: 400;
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(47, 123, 62, 0.448);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.navbar.scrolled .navbar-links {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(47, 123, 62, 0.15);
+}
+
+.navbar-links a {
+    text-decoration: none;
+    color: #174f2d;
+    font-weight: 500;
+    font-size: 0.95rem;
+    position: relative;
+    padding: 0.7rem 1.2rem;
+    border-radius: 25px;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    white-space: nowrap;
+}
+
+.navbar-links a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #2f7b3e, #4a9960);
+    border-radius: 25px;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    z-index: -1;
+}
+
+.navbar-links a:hover::before {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.navbar-links a:hover {
+    color: white;
+    transform: translateY(-1px);
+}
+
+.navbar-links a i {
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.navbar-links a:hover i {
+    transform: scale(1.1);
+}
+
+/* Special styling for active/current page */
+.navbar-links a.active {
+    background: linear-gradient(135deg, #2f7b3e, #4a9960);
+    color: white;
+    box-shadow: 0 4px 15px rgba(47, 123, 62, 0.3);
+}
+
+.navbar-links a.active::before {
+    opacity: 0;
+}
+
+/* Action buttons */
+.navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.btn-order {
+    background: linear-gradient(135deg, #2f7b3e, #4a9960);
+    color: white;
+    padding: 0.8rem 1.8rem;
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 4px 15px rgba(47, 123, 62, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+}
+
+.btn-order:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(47, 123, 62, 0.4);
+}
+
+.menu-toggle {
+    display: none;
+    background: linear-gradient(135deg, #2f7b3e, #4a9960);
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    cursor: pointer;
+    color: white;
+    font-size: 1.2rem;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 4px 15px rgba(47, 123, 62, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-toggle::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s;
+}
+
+.menu-toggle:hover::before {
+    left: 100%;
+}
+
+.menu-toggle:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(47, 123, 62, 0.4);
+}
+
+/* Mobile menu */
+.mobile-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 2rem;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    padding: 2.5rem 2rem;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(47, 123, 62, 0.1);
+    min-width: 320px;
+    transform: translateY(-20px);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.mobile-menu.active {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.mobile-menu a {
+    text-decoration: none;
+    color: #174f2d;
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding: 1.2rem 1.5rem;
+    border-radius: 15px;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: transparent;
+    border: 2px solid transparent;
+}
+
+.mobile-menu a:hover {
+    background: linear-gradient(135deg, #2f7b3e, #4a9960);
+    color: white;
+    transform: translateX(10px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.mobile-menu a i {
+    font-size: 1.2rem;
+    width: 24px;
+    text-align: center;
+}
+
+.mobile-menu .btn-order {
+    margin-top: 1rem;
+    justify-content: center;
+}
+
+/* Tea steam animation */
+.steam {
+    position: absolute;
+    top: -5px;
+    right: 5px;
+    font-size: 0.7rem;
+    opacity: 0.6;
+    animation: steam 2s ease-in-out infinite;
+}
+
+@keyframes steam {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translateY(-8px) scale(1.1);
+        opacity: 0.3;
+    }
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+    .navbar-container {
+        padding: 1rem 1.5rem;
+    }
+    
+    .navbar-links {
+        gap: 0.3rem;
+        padding: 0.7rem 1.2rem;
+    }
+
+    .navbar-links a {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .btn-order {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-links,
+    .navbar-actions {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .navbar-container {
+        padding: 1rem;
+    }
+
+    .logo-main {
+        font-size: 1.6rem;
+    }
+
+    .logo-script {
+        font-size: 1.2rem;
+    }
+
+    .logo-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .mobile-menu {
+        right: 1rem;
+        left: 1rem;
+        min-width: auto;
+        padding: 2rem 1.5rem;
+    }
+
+    .logo-text {
+        display: none;
+    }
+}
+
+/* Loading animation */
+@keyframes slideInDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.navbar {
+    animation: slideInDown 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}

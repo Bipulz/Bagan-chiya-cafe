@@ -1,0 +1,126 @@
+/* Hero Section Styles */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    padding-top: 100px;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('https://res.cloudinary.com/dzdinuw5d/image/upload/v1754036192/front-2_ggpeur.png') no-repeat center center/cover;
+    z-index: -2;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.644), rgba(255, 255, 255, 0.605), transparent);
+    z-index: -1;
+}
+
+.hero-content {
+    max-width: 1000px;
+    width: 100%;
+    padding: 2rem;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 0.5rem 1.25rem;
+    border-radius: 2rem;
+    color: #444;
+    font-size: 0.875rem;
+    border: 1px solid #ccc;
+    margin-bottom: 1.5rem;
+}
+
+.badge-icon {
+    color: #2f7b3e;
+}
+
+h1 {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #111;
+    line-height: 1.2;
+}
+
+h1 span {
+    font-family: 'Great Vibes', cursive;
+    font-size: 4.5rem;
+    color: #2f7b3e;
+    display: block;
+    margin-top: 0.2em;
+}
+
+.description {
+    margin-top: 1.5rem;
+    font-size: 1.25rem;
+    color: #333;
+    max-width: 600px;
+    line-height: 1.6;
+}
+
+.cta {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+}
+
+.btn.primary {
+    background-color: #174f2d;
+    color: white;
+}
+
+.btn.primary:hover {
+    background-color: #1d5f37;
+}
+
+.btn.secondary {
+    background-color: rgba(255, 255, 255, 0.6);
+    border: 1px solid #ccc;
+    color: #111;
+}
+
+.stats {
+    display: flex;
+    gap: 3rem;
+    margin-top: 3rem;
+    font-size: 1rem;
+    color: #333;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2f7b3e;
+}
