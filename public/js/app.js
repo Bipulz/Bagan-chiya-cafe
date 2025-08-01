@@ -51,8 +51,8 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // Smooth scroll for anchor links
-    const navLinks = document.querySelectorAll('.navbar-links a, .mobile-menu a');
+    // Smooth scroll for anchor links, excluding Our Story
+    const navLinks = document.querySelectorAll('.navbar-links a:not([href*="/story"]), .mobile-menu a:not([href*="/story"])');
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             const href = this.getAttribute('href');

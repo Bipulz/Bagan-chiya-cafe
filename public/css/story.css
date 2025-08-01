@@ -1,0 +1,201 @@
+/* Story Page Styles */
+.story-hero {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 100px;
+}
+
+.story-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('https://res.cloudinary.com/dzdinuw5d/image/upload/v1754030973/updated_front_bjrpwu.png') no-repeat center center/cover;
+    z-index: -2;
+}
+
+.story-hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.4), transparent);
+    z-index: -1;
+}
+
+.story-hero-content {
+    max-width: 1000px;
+    padding: 2rem;
+}
+
+.story-hero .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 0.5rem 1.25rem;
+    border-radius: 2rem;
+    color: #444;
+    font-size: 0.875rem;
+    border: 1px solid #ccc;
+    margin-bottom: 1.5rem;
+}
+
+.story-hero .badge-icon {
+    color: #2f7b3e;
+}
+
+.story-hero h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: #111;
+    line-height: 1.2;
+    font-family: 'Inter', sans-serif;
+}
+
+.story-hero .description {
+    font-size: 1.25rem;
+    color: #333;
+    max-width: 600px;
+    margin: 1.5rem auto 0;
+    line-height: 1.6;
+}
+
+.story-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    background: #f5faf5;
+}
+
+.content-block {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.content-block h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #111;
+    margin-bottom: 1rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.content-block p {
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 3rem 0;
+}
+
+.gallery img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+.story-content .btn.primary {
+    background-color: #174f2d;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    margin-top: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.story-content .btn.primary:hover {
+    background-color: #1d5f37;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .story-hero h1 {
+        font-size: 3rem;
+    }
+
+    .story-hero .description {
+        font-size: 1.1rem;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .story-hero {
+        min-height: 50vh;
+        padding-top: 80px;
+    }
+
+    .story-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .story-hero .description {
+        font-size: 1rem;
+    }
+
+    .story-content {
+        padding: 3rem 1.5rem;
+    }
+
+    .content-block h2 {
+        font-size: 2rem;
+    }
+
+    .content-block p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .story-hero {
+        padding-top: 60px;
+    }
+
+    .story-hero h1 {
+        font-size: 2rem;
+    }
+
+    .story-hero .description {
+        font-size: 0.9rem;
+    }
+
+    .story-content {
+        padding: 2rem 1rem;
+    }
+
+    .content-block h2 {
+        font-size: 1.8rem;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,6 +1,6 @@
 <header class="navbar" id="navbar">
     <div class="navbar-container">
-        <a href="#" class="navbar-logo">
+        <a href="{{ route('home') }}" class="navbar-logo">
             <div class="logo-container">
                 <div class="logo-icon">
                     🍃
@@ -13,64 +13,64 @@
             </div>
         </a>
 
+        {{-- Desktop Navbar Links --}}
         <nav class="navbar-links">
-            <a href="#home" class="active">
+            <a href="{{ route('home') }}" class="{{ request()->routeIs('home') ? 'active' : '' }}">
                 <i class="fas fa-home"></i>
                 <span>Home</span>
             </a>
-            <a href="#menu">
+            <a href="{{ route('menu') }}" class="{{ request()->routeIs('menu') ? 'active' : '' }}">
                 <i class="fas fa-leaf"></i>
                 <span>Tea Menu</span>
             </a>
-            <a href="#about">
+            <a href="{{ route('story') }}" class="{{ request()->routeIs('story') ? 'active' : '' }}">
                 <i class="fas fa-mountain"></i>
                 <span>Our Story</span>
             </a>
-            <a href="#gallery">
+            <a href="{{ route('gallery') }}" class="{{ request()->routeIs('gallery') ? 'active' : '' }}">
                 <i class="fas fa-camera"></i>
                 <span>Gallery</span>
             </a>
-            <a href="#contact">
+            <a href="{{ route('contact') }}" class="{{ request()->routeIs('contact') ? 'active' : '' }}">
                 <i class="fas fa-map-marker-alt"></i>
                 <span>Visit Us</span>
             </a>
         </nav>
 
+        {{-- Order Button --}}
         <div class="navbar-actions">
-            <a href="#order" class="btn-order">
+            <a href="{{ route('order') }}" class="btn-order">
                 <i class="fas fa-shopping-cart"></i>
                 <span>Order Now</span>
             </a>
         </div>
 
+        {{-- Mobile Toggle --}}
         <button class="menu-toggle" id="menuToggle">
             <i class="fas fa-bars"></i>
         </button>
 
+        {{-- Mobile Menu --}}
         <div class="mobile-menu" id="mobileMenu">
-            <a href="#home">
+            <a href="{{ route('home') }}" class="{{ request()->routeIs('home') ? 'active' : '' }}">
                 <i class="fas fa-home"></i>
                 <span>Home</span>
             </a>
-            <a href="#menu">
+            <a href="{{ route('menu') }}" class="{{ request()->routeIs('menu') ? 'active' : '' }}">
                 <i class="fas fa-leaf"></i>
                 <span>Tea Menu</span>
             </a>
-            <a href="#about">
+            <a href="{{ route('story') }}" class="{{ request()->routeIs('story') ? 'active' : '' }}">
                 <i class="fas fa-mountain"></i>
                 <span>Our Story</span>
             </a>
-            <a href="#gallery">
+            <a href="{{ route('gallery') }}" class="{{ request()->routeIs('gallery') ? 'active' : '' }}">
                 <i class="fas fa-camera"></i>
                 <span>Gallery</span>
             </a>
-            <a href="#contact">
+            <a href="{{ route('contact') }}" class="{{ request()->routeIs('contact') ? 'active' : '' }}">
                 <i class="fas fa-map-marker-alt"></i>
                 <span>Visit Us</span>
-            </a>
-            <a href="#order" class="btn-order">
-                <i class="fas fa-shopping-cart"></i>
-                <span>Order Now</span>
             </a>
         </div>
     </div>
