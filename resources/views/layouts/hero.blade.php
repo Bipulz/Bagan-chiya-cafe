@@ -11,13 +11,18 @@
         </p>
 
         <div class="cta">
-            <button class="btn primary">
-                Explore Our Teas →
-            </button>
-            <button class="btn secondary">
-                Our Story
-            </button>
+            <a href="{{ route('menu') }}">
+                <button class="btn primary">
+                    Explore Our Teas →
+                </button>
+            </a>
+            <a href="{{ route('story') }}">
+                <button class="btn secondary">
+                    Our Story
+                </button>
+            </a>
         </div>
+
 
         <div class="stats">
             <div class="stat">

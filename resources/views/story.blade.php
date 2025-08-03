@@ -218,7 +218,7 @@
                 <p class="journey-intro">
                     Experience the authentic taste of Nepal's finest teas in the heart of where our story began.
                 </p>
-                <a href="#" class="btn-enhanced">
+                <a href="{{ asset('') }}" class="btn-enhanced">
                     <i class="fas fa-home"></i>
                     <span>Back to Home</span>
                 </a>

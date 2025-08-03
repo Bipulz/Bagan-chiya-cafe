@@ -3,9 +3,11 @@
         <a href="{{ route('home') }}" class="navbar-logo">
             <div class="logo-container">
                 <div class="logo-icon">
-                    🍃
+                    <img src="https://res.cloudinary.com/dzdinuw5d/image/upload/v1754205687/Erasedlogo_u4qem7.png"
+                        alt="Logo" style="height: 50px;">
                     <div class="steam">☁️</div>
                 </div>
+
                 <div class="logo-text">
                     <span class="logo-main">Bagan</span>
                     <span class="logo-script">Chiya Cafe</span>
