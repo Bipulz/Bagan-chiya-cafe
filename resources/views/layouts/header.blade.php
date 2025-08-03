@@ -21,7 +21,7 @@
             </a>
             <a href="{{ route('menu') }}" class="{{ request()->routeIs('menu') ? 'active' : '' }}">
                 <i class="fas fa-leaf"></i>
-                <span>Tea Menu</span>
+                <span>Menu</span>
             </a>
             <a href="{{ route('story') }}" class="{{ request()->routeIs('story') ? 'active' : '' }}">
                 <i class="fas fa-mountain"></i>
@@ -31,7 +31,7 @@
                 <i class="fas fa-camera"></i>
                 <span>Gallery</span>
             </a>
-            <a href="{{ route('contact') }}" class="{{ request()->routeIs('contact') ? 'active' : '' }}">
+            <a href="{{ route('visitus') }}" class="{{ request()->routeIs('contact') ? 'active' : '' }}">
                 <i class="fas fa-map-marker-alt"></i>
                 <span>Visit Us</span>
             </a>
@@ -58,7 +58,7 @@
             </a>
             <a href="{{ route('menu') }}" class="{{ request()->routeIs('menu') ? 'active' : '' }}">
                 <i class="fas fa-leaf"></i>
-                <span>Tea Menu</span>
+                <span>Menu</span>
             </a>
             <a href="{{ route('story') }}" class="{{ request()->routeIs('story') ? 'active' : '' }}">
                 <i class="fas fa-mountain"></i>
@@ -68,7 +68,7 @@
                 <i class="fas fa-camera"></i>
                 <span>Gallery</span>
             </a>
-            <a href="{{ route('contact') }}" class="{{ request()->routeIs('contact') ? 'active' : '' }}">
+            <a href="{{ route('visitus') }}" class="{{ request()->routeIs('contact') ? 'active' : '' }}">
                 <i class="fas fa-map-marker-alt"></i>
                 <span>Visit Us</span>
             </a>

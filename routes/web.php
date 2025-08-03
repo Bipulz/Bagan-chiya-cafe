@@ -18,9 +18,9 @@ Route::get('/gallery', function () {
     return view('gallery');
 })->name('gallery');
 
-Route::get('/contact', function () {
-    return view('contact');
-})->name('contact');
+Route::get('/visitus', function () {
+    return view('visitus');
+})->name('visitus');
 
 Route::get('/order', function () {
     return view('order');

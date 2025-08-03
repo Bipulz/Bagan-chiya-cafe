@@ -1,0 +1,123 @@
+.footer {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+    color: white;
+    padding: 2rem 1.5rem 1.5rem;
+    position: relative;
+    font-family: 'Inter', sans-serif;
+}
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to right, #2f7b3e, #4a9c5c, #2f7b3e);
+}
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+.footer-section h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: #2f7b3e;
+    font-family: 'Playfair Display', serif;
+    position: relative;
+}
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: #2f7b3e;
+}
+.footer-logo {
+    font-size: 1.6rem;
+    font-family: 'Great Vibes', cursive;
+    color: #2f7b3e;
+    margin-bottom: 0.8rem;
+}
+.footer-description {
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+}
+.footer-contact p {
+    margin-bottom: 0.8rem;
+    color: #ccc;
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+}
+.footer-contact i {
+    margin-right: 8px;
+    color: #2f7b3e;
+    width: 18px;
+}
+.footer-hours p {
+    margin-bottom: 0.6rem;
+    color: #ccc;
+    font-size: 0.9rem;
+}
+.social-links {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: 1rem;
+}
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #2f7b3e, #4a9c5c);
+    border-radius: 50%;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+}
+.social-link:hover {
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 6px 15px rgba(47, 123, 62, 0.3);
+}
+.footer-bottom {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #444;
+    text-align: center;
+    color: #ccc;
+    font-size: 0.85rem;
+}
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+@media (max-width: 480px) {
+    .footer {
+        padding: 1.5rem 1rem;
+    }
+    .footer-logo {
+        font-size: 1.4rem;
+    }
+    .footer-section h3 {
+        font-size: 1.1rem;
+    }
+    .social-link {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
+    .footer-description, .footer-contact p, .footer-hours p, .footer-bottom {
+        font-size: 0.85rem;
+    }
+}
