@@ -1,3 +1,25 @@
+<section class="why-us-section section">
+    <div class="section-container">
+        <h2 class="section-title">Why Choose Us</h2>
+        <div class="why-us-cards">
+            <div class="why-us-card">
+                <i class="fas fa-leaf"></i>
+                <h3>Organic Ingredients</h3>
+                <p>We use only the finest organic teas and herbs sourced locally.</p>
+            </div>
+            <div class="why-us-card">
+                <i class="fas fa-smile"></i>
+                <h3>Friendly Service</h3>
+                <p>Our staff ensures a warm and welcoming experience every time.</p>
+            </div>
+            <div class="why-us-card">
+                <i class="fas fa-heart"></i>
+                <h3>Authentic Taste</h3>
+                <p>Experience the true essence of Nepali tea culture.</p>
+            </div>
+        </div>
+    </div>
+</section>
 <section class="testimonials-section section">
     <div class="section-container">
         <h2 class="section-title">What Our Customers Say</h2>
@@ -56,7 +78,7 @@
 
 <section class="tea-section section">
     <div class="section-container">
-        <h2 class="section-title">Tea Specialties</h2>
+        <h2 class="section-title">Special Offer</h2>
         <div class="tea-cards">
             <div class="tea-card">
                 <h3>Bagan Chiya</h3>
@@ -78,28 +100,7 @@
     </div>
 </section>
 
-<section class="why-us-section section">
-    <div class="section-container">
-        <h2 class="section-title">Why Choose Us</h2>
-        <div class="why-us-cards">
-            <div class="why-us-card">
-                <i class="fas fa-leaf"></i>
-                <h3>Organic Ingredients</h3>
-                <p>We use only the finest organic teas and herbs sourced locally.</p>
-            </div>
-            <div class="why-us-card">
-                <i class="fas fa-smile"></i>
-                <h3>Friendly Service</h3>
-                <p>Our staff ensures a warm and welcoming experience every time.</p>
-            </div>
-            <div class="why-us-card">
-                <i class="fas fa-heart"></i>
-                <h3>Authentic Taste</h3>
-                <p>Experience the true essence of Nepali tea culture.</p>
-            </div>
-        </div>
-    </div>
-</section>
+
 
 <section class="additional-sections section">
     <div class="section-container">
@@ -107,12 +108,13 @@
             <div class="section-card menu-section">
                 <h2 class="section-title">Explore Our Menu</h2>
                 <p>Discover a variety of teas, snacks, and more crafted with love.</p>
-                <a href="#menu" class="section-link">View Menu <i class="fas fa-arrow-right"></i></a>
+                <a href="{{ route('menu') }}" class="section-link">View Menu <i class="fas fa-arrow-right"></i></a>
             </div>
             <div class="section-card events-section">
                 <h2 class="section-title">Upcoming Events</h2>
                 <p>Join us for tea tasting and cultural events this month!</p>
-                <a href="#events" class="section-link">See Events <i class="fas fa-calendar"></i></a>
+                <a href="https://www.instagram.com/bagan_chiya/?hl=en" class="section-link">See Events <i
+                        class="fas fa-calendar" target="_blank"></i></a>
             </div>
         </div>
     </div>
