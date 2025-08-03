@@ -21,8 +21,8 @@
         <div class="hero-content">
             <h1>Our Menu</h1>
             <h1><span>Savor the Essence</span></h1>
-            <p>
-                Explore our fresh offerings available today, Saturday, August 02, 2025, at 08:37 PM +0545.
+            <p id="dynamic-date">
+                Explore our fresh offerings available
             </p>
         </div>
     </section>
@@ -148,12 +148,21 @@
     @include('layouts.footer')
 
     <script>
-        // Simple script for CTA button interaction
-        const ctaButton = document.querySelector('.cta-button');
-        ctaButton.addEventListener('click', () => {
-            alert('Thank you for subscribing! (Demo alert)');
+        document.addEventListener('DOMContentLoaded', function() {
+            const dateElement = document.getElementById('dynamic-date');
+            const today = new Date();
+
+            const options = {
+                weekday: 'long'
+            };
+
+            const dayName = today.toLocaleDateString('en-US', options);
+
+            dateElement.textContent =
+                `Explore our fresh offerings available today, ${dayName}.`;
         });
     </script>
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 
 </html>

@@ -81,8 +81,8 @@
                     </div>
                 </div>
 
-                <a href="https://www.google.com/maps/dir/?api=1&destination=26.6605341,87.6943016" target="_blank"
-                    class="directions-btn">
+                <a href="https://www.google.com/maps/dir/?api=1&destination=26.66053913786134, 87.69431236087694"
+                    target="_blank" class="directions-btn">
                     Get Directions
                 </a>
             </div>

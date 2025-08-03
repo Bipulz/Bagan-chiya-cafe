@@ -39,7 +39,7 @@
 
         {{-- Order Button --}}
         <div class="navbar-actions">
-            <a href="{{ route('order') }}" class="btn-order">
+            <a href="{{ route('menu') }}" class="btn-order">
                 <i class="fas fa-shopping-cart"></i>
                 <span>Order Now</span>
             </a>
