@@ -50,6 +50,7 @@
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     border: 1px solid rgba(47, 123, 62, 0.3);
+    margin-top: 2rem;
     margin-bottom: 1.5rem;
     transition: all 0.3s ease;
     animation: glow 2.8s ease-in-out infinite;

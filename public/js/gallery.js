@@ -1,7 +1,7 @@
 let currentImageIndex = 0;
 let allImages = [];
 let currentFilter = 'all';
-const photosPerPage = 10;
+const photosPerPage = 5;
 
 document.addEventListener('DOMContentLoaded', function() {
     initializeGallery();
@@ -16,28 +16,29 @@ function initializeGallery() {
         title: item.querySelector('h3').textContent,
         description: item.querySelector('p').textContent,
         index: index,
-        category: item.dataset.category
+        category: item.dataset.category,
+        tags: Array.from(item.querySelectorAll('.photo-gallery__tag')).map(tag => tag.textContent) // Include tags
     }));
 
-    // Show only the first 10 photos initially
     galleryItems.forEach((item, index) => {
         if (index >= photosPerPage) {
             item.classList.add('hidden');
         }
     });
 
-    // Add click events to gallery items
     galleryItems.forEach((item, index) => {
         item.addEventListener('click', () => openLightbox(index));
+        item.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            openLightbox(index);
+        });
     });
 
-    // Add filter functionality
     const filterBtns = document.querySelectorAll('.photo-gallery__filter-btn');
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => filterGallery(btn.dataset.filter, btn));
     });
 
-    // Check if there are more photos to load
     updateLoadMoreButton();
 }
 
@@ -51,11 +52,9 @@ function addAnimationDelays() {
 function filterGallery(filter, btn) {
     currentFilter = filter;
 
-    // Update active button
     document.querySelectorAll('.photo-gallery__filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
 
-    // Filter items
     const galleryItems = document.querySelectorAll('.photo-gallery__item');
     let visibleCount = 0;
     galleryItems.forEach((item, index) => {
@@ -76,7 +75,6 @@ function filterGallery(filter, btn) {
         }
     });
 
-    // Update load more/unload button visibility
     updateLoadMoreButton();
 }
 
@@ -87,6 +85,15 @@ function openLightbox(index) {
     document.getElementById('photo-gallery-lightbox-img').src = image.src;
     document.getElementById('photo-gallery-lightbox-title').textContent = image.title;
     document.getElementById('photo-gallery-lightbox-description').textContent = image.description;
+
+    const tagsContainer = document.getElementById('photo-gallery-lightbox-tags');
+    tagsContainer.innerHTML = '';
+    image.tags.forEach(tag => {
+        const tagElement = document.createElement('span');
+        tagElement.className = 'photo-gallery__tag';
+        tagElement.textContent = tag;
+        tagsContainer.appendChild(tagElement);
+    });
 
     document.getElementById('photo-gallery-lightbox').classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -115,7 +122,7 @@ function changeImage(direction) {
 function loadMorePhotos() {
     const loadBtn = document.querySelector('.photo-gallery__load-more-btn');
     const unloadBtn = document.querySelector('.photo-gallery__unload-btn');
-    loadBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
+    loadBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Showing...';
     loadBtn.disabled = true;
 
     setTimeout(() => {
@@ -138,7 +145,7 @@ function loadMorePhotos() {
 function unloadPhotos() {
     const unloadBtn = document.querySelector('.photo-gallery__unload-btn');
     const loadBtn = document.querySelector('.photo-gallery__load-more-btn');
-    unloadBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Unloading...';
+    unloadBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Hiding...';
     unloadBtn.disabled = true;
 
     setTimeout(() => {
@@ -174,19 +181,19 @@ function updateLoadMoreButton() {
     const visibleItems = document.querySelectorAll(`.photo-gallery__item:not(.hidden)${currentFilter === 'all' ? '' : `[data-category="${currentFilter}"]`}`);
 
     if (hiddenItems.length === 0) {
-        loadBtn.innerHTML = '<i class="fas fa-check"></i> All Photos Loaded';
+        loadBtn.innerHTML = '<i class="fas fa-check"></i> All Photos Shown';
         loadBtn.classList.add('disabled');
         loadBtn.disabled = true;
         unloadBtn.classList.remove('hidden');
-        unloadBtn.innerHTML = '<i class="fas fa-minus"></i> Unload Photos';
+        unloadBtn.innerHTML = '<i class="fas fa-minus"></i> Show Less Photos';
         unloadBtn.disabled = false;
     } else {
-        loadBtn.innerHTML = '<i class="fas fa-plus"></i> Load More Photos';
+        loadBtn.innerHTML = '<i class="fas fa-plus"></i> Show More Photos';
         loadBtn.classList.remove('disabled');
         loadBtn.disabled = false;
         if (visibleItems.length > photosPerPage) {
             unloadBtn.classList.remove('hidden');
-            unloadBtn.innerHTML = '<i class="fas fa-minus"></i> Unload Photos';
+            unloadBtn.innerHTML = '<i class="fas fa-minus"></i> Show Less Photos';
             unloadBtn.disabled = false;
         } else {
             unloadBtn.classList.add('hidden');
@@ -194,7 +201,6 @@ function updateLoadMoreButton() {
     }
 }
 
-// Keyboard navigation
 document.addEventListener('keydown', function(e) {
     if (document.getElementById('photo-gallery-lightbox').classList.contains('active')) {
         if (e.key === 'Escape') closeLightbox();
@@ -203,7 +209,6 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-// Close lightbox when clicking outside image
 document.getElementById('photo-gallery-lightbox').addEventListener('click', function(e) {
     if (e.target === this) {
         closeLightbox();

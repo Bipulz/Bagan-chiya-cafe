@@ -1,174 +1,357 @@
-<section class="main-interaction section" id="main-interaction">
-    <h2 class="section-title"><i class="fas fa-leaf icon"></i> Crafting Moment Since 2081</h2>
-    <div class="section-container">
-        <div class="enhanced-gallery" id="main-interaction-grid">
-            <div class="gallery-item" data-tilt data-tilt-max="8" data-tilt-speed="300" data-tilt-perspective="1200">
-                <img src="https://res.cloudinary.com/dzdinuw5d/image/upload/v1754038926/WhatsApp_Image_2025-07-31_at_6.28.54_PM_1_tiivhu.jpg"
-                    alt="Tea Picking"
-                    onclick="showLightbox(this.src, 'Tea Picking', 'Crafting perfection in the fields, August 02, 2025')">
-                <div class="overlay">
-                    <h3>Tea Picking</h3>
-                    <p>Crafting perfection in the fields, August 02, 2025</p>
-                </div>
-            </div>
-            <div class="gallery-item" data-tilt data-tilt-max="8" data-tilt-speed="300" data-tilt-perspective="1200">
-                <img src="https://res.cloudinary.com/dzdinuw5d/image/upload/v1754038927/WhatsApp_Image_2025-07-31_at_6.28.55_PM_2_x7xcer.jpg"
-                    alt="Processing Tea"
-                    onclick="showLightbox(this.src, 'Processing Tea', 'Artisanal processing, July 2025')">
-                <div class="overlay">
-                    <h3>Processing Tea</h3>
-                    <p>Artisanal processing, July 2025</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="lightbox" id="lightbox">
-        <span class="close-btn" onclick="closeLightbox()">&times;</span>
-        <img id="lightbox-img" src="" alt="Lightbox Image">
-        <div class="lightbox-content">
-            <h3 id="lightbox-title"></h3>
-            <p id="lightbox-description"></p>
-        </div>
-    </div>
-</section>
-<section class="why-us-section section">
-    <div class="section-container">
-        <h2 class="section-title">Why Choose Us</h2>
-        <div class="why-us-cards">
-            <div class="why-us-card">
-                <i class="fas fa-leaf"></i>
-                <h3>Organic Ingredients</h3>
-                <p>We use only the finest organic teas and herbs sourced locally.</p>
-            </div>
-            <div class="why-us-card">
-                <i class="fas fa-smile"></i>
-                <h3>Friendly Service</h3>
-                <p>Our staff ensures a warm and welcoming experience every time.</p>
-            </div>
-            <div class="why-us-card">
-                <i class="fas fa-heart"></i>
-                <h3>Authentic Taste</h3>
-                <p>Experience the true essence of Nepali tea culture.</p>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="testimonials-section section">
-    <div class="section-container">
-        <h2 class="section-title">What Our Customers Say</h2>
-        <div class="testimonial-cards">
-            <div class="testimonial-card">
-                <p class="testimonial-text">"The best chiya I've ever tasted! The ambiance is so cozy."</p>
-                <div class="rating">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                        class="fas fa-star"></i><i class="fas fa-star"></i>
-                </div>
-                <p class="testimonial-author">- Priya K., Damak</p>
-            </div>
-            <div class="testimonial-card">
-                <p class="testimonial-text">"Amazing Boba Tea and friendly staff. Highly recommend!"</p>
-                <div class="rating">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                        class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                </div>
-                <p class="testimonial-author">- Anil S., Kathmandu</p>
-            </div>
-            <div class="testimonial-card">
-                <p class="testimonial-text">"A perfect spot for tea lovers. The Herbal Bliss is a must-try!"</p>
-                <div class="rating">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                        class="fas fa-star"></i><i class="fas fa-star"></i>
-                </div>
-                <p class="testimonial-author">- Sunita M., Pokhara</p>
-            </div>
-            <div class="testimonial-card">
-                <p class="testimonial-text">"Great service and delicious flavors. Will visit again!"</p>
-                <div class="rating">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                        class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                </div>
-                <p class="testimonial-author">- Ramesh P., Biratnagar</p>
-            </div>
-        </div>
-    </div>
-</section>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
+     <section class="tea-gallery-section">
+         <div class="section-container">
+             <!-- Title -->
+             <h2 class="section-title">
+                 <i class="fas fa-leaf icon"></i>
+                 Crafting Moments Since 2081
+             </h2>
+             <p class="section-subtitle">Experience the journey from leaf to cup</p>
 
-<section class="owner-words-section section">
-    <div class="section-container">
-        <h2 class="section-title">Words From Our Founder</h2>
-        <div class="owner-content">
-            <img src="https://res.cloudinary.com/dzdinuw5d/image/upload/v1754038926/WhatsApp_Image_2025-07-31_at_6.28.54_PM_1_tiivhu.jpg"
-                alt="Founder of Bagan Chiya Cafe" class="owner-photo">
-            <div class="owner-text">
-                <p>"At Bagan Chiya Cafe, we pour our heart into every cup. Our mission is to share the rich tea
-                    culture
-                    of Nepal with the world, using only the finest ingredients. Come join us for a taste of
-                    tradition!"
-                </p>
-                <p class="owner-signature">- Rajesh Sharma, Founder</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="tea-section section">
-    <div class="section-container">
-        <h2 class="section-title">Special Offer</h2>
-        <div class="tea-cards">
-            <div class="tea-card">
-                <h3>Bagan Chiya</h3>
-                <p>Authentic Nepali tea with a rich, aromatic flavor.</p>
-                <p class="tea-price">Price: Rs 250</p>
-            </div>
-            <div class="tea-card">
-                <h3>Bagan Boba Tea</h3>
-                <p>Creamy tea with chewy tapioca pearls.</p>
-                <p class="tea-price">Price: <s>Rs 300</s> <span class="discount-price">Rs 250</span> (17% OFF)</p>
-                <p class="discount-note">Limited time offer! Use code <strong>BOBA17</strong> at checkout.</p>
-            </div>
-            <div class="tea-card">
-                <h3>Herbal Bliss</h3>
-                <p>Soothing herbal infusion with local herbs.</p>
-                <p class="tea-price">Price: Rs 275</p>
-            </div>
-        </div>
-    </div>
-</section>
+             <!-- Enhanced Gallery -->
+             <div class="enhanced-gallery">
+                 <div class="tea-gallery-slider">
+                     <div class="gallery-item">
+                         <img src="https://res.cloudinary.com/dzdinuw5d/image/upload/v1754038926/WhatsApp_Image_2025-07-31_at_6.28.54_PM_1_tiivhu.jpg"
+                             alt="Tea Picking">
+                         <div class="gallery-overlay">
+                             <h3>Tea Picking</h3>
+                             <p>Crafting perfection in the fields</p>
+                             <p class="date">August 02, 2025</p>
+                             <button class="view-details-btn"
+                                 onclick="openLightbox('https://res.cloudinary.com/dzdinuw5d/image/upload/v1754038926/WhatsApp_Image_2025-07-31_at_6.28.54_PM_1_tiivhu.jpg', 'Tea Picking', 'Crafting perfection in the fields', 'August 02, 2025')">
+                                 <i class="fas fa-eye"></i>
+                                 View Details
+                             </button>
+                         </div>
+                     </div>
+                     <div class="gallery-item">
+                         <img src="https://res.cloudinary.com/dzdinuw5d/image/upload/v1754038927/WhatsApp_Image_2025-07-31_at_6.28.55_PM_2_x7xcer.jpg"
+                             alt="Processing Tea">
+                         <div class="gallery-overlay">
+                             <h3>Processing Tea</h3>
+                             <p>Artisanal processing methods</p>
+                             <p class="date">July 2025</p>
+                             <button class="view-details-btn"
+                                 onclick="openLightbox('https://res.cloudinary.com/dzdinuw5d/image/upload/v1754038927/WhatsApp_Image_2025-07-31_at_6.28.55_PM_2_x7xcer.jpg', 'Processing Tea', 'Artisanal processing methods', 'July 2025')">
+                                 <i class="fas fa-eye"></i>
+                                 View Details
+                             </button>
+                         </div>
+                     </div>
+                     <div class="gallery-item">
+                         <img src="https://res.cloudinary.com/dzdinuw5d/image/upload/v1754038927/WhatsApp_Image_2025-07-31_at_6.28.55_PM_2_x7xcer.jpg"
+                             alt="Tea Tasting">
+                         <div class="gallery-overlay">
+                             <h3>Tea Tasting</h3>
+                             <p>Savoring the essence</p>
+                             <p class="date">July 2025</p>
+                             <button class="view-details-btn"
+                                 onclick="openLightbox('https://res.cloudinary.com/dzdinuw5d/image/upload/v1754038927/WhatsApp_Image_2025-07-31_at_6.28.55_PM_2_x7xcer.jpg', 'Tea Tasting', 'Savoring the essence', 'July 2025')">
+                                 <i class="fas fa-eye"></i>
+                                 View Details
+                             </button>
+                         </div>
+                     </div>
+                     <div class="gallery-item">
+                         <img src="https://res.cloudinary.com/dzdinuw5d/image/upload/v1754038927/WhatsApp_Image_2025-07-31_at_6.28.55_PM_2_x7xcer.jpg"
+                             alt="Tea Ceremony">
+                         <div class="gallery-overlay">
+                             <h3>Tea Ceremony</h3>
+                             <p>Celebrating tradition</p>
+                             <p class="date">July 2025</p>
+                             <button class="view-details-btn"
+                                 onclick="openLightbox('https://res.cloudinary.com/dzdinuw5d/image/upload/v1754038927/WhatsApp_Image_2025-07-31_at_6.28.55_PM_2_x7xcer.jpg', 'Tea Ceremony', 'Celebrating tradition', 'July 2025')">
+                                 <i class="fas fa-eye"></i>
+                                 View Details
+                             </button>
+                         </div>
+                     </div>
+                     <div class="gallery-item">
+                         <img src="https://res.cloudinary.com/dzdinuw5d/image/upload/v1754038926/WhatsApp_Image_2025-07-31_at_6.28.54_PM_1_tiivhu.jpg"
+                             alt="Cafe Ambiance">
+                         <div class="gallery-overlay">
+                             <h3>Cafe Ambiance</h3>
+                             <p>Our cozy interior</p>
+                             <p class="date">June 2025</p>
+                             <button class="view-details-btn"
+                                 onclick="openLightbox('https://res.cloudinary.com/dzdinuw5d/image/upload/v1754038926/WhatsApp_Image_2025-07-31_at_6.28.54_PM_1_tiivhu.jpg', 'Cafe Ambiance', 'Our cozy interior', 'June 2025')">
+                                 <i class="fas fa-eye"></i>
+                                 View Details
+                             </button>
+                         </div>
+                     </div>
+                     <div class="gallery-item">
+                         <img src="https://res.cloudinary.com/dzdinuw5d/image/upload/v1754038927/WhatsApp_Image_2025-07-31_at_6.28.55_PM_2_x7xcer.jpg"
+                             alt="Tea Blending">
+                         <div class="gallery-overlay">
+                             <h3>Tea Blending</h3>
+                             <p>Artisan blending process</p>
+                             <p class="date">June 2025</p>
+                             <button class="view-details-btn"
+                                 onclick="openLightbox('https://res.cloudinary.com/dzdinuw5d/image/upload/v1754038927/WhatsApp_Image_2025-07-31_at_6.28.55_PM_2_x7xcer.jpg', 'Tea Blending', 'Artisan blending process', 'June 2025')">
+                                 <i class="fas fa-eye"></i>
+                                 View Details
+                             </button>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+             <!-- View All Button -->
+             <div class="btn-container">
+                 <button class="view-all-btn">
+                     <a href="{{ route('gallery') }}" style="text-decoration: none; color: inherit;">
+                         <i class="fas fa-leaf"></i>
+                         <span style="margin-left: 6px;">View All Images</span>
+                     </a>
 
 
+                 </button>
+             </div>
+             <!-- Enhanced Lightbox -->
+             <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+                 <button class="close-btn" onclick="closeLightbox()">
+                     <i class="fas fa-times"></i>
+                 </button>
+                 <div class="lightbox-content" onclick="event.stopPropagation()">
+                     <img id="lightbox-img" src="" alt="">
+                     <div class="lightbox-info">
+                         <h3 id="lightbox-title"></h3>
+                         <p id="lightbox-description"></p>
+                         <p class="date" id="lightbox-date"></p>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </section>
+     <section class="owner-words-section section">
+         <div class="section-container">
+             <h2 class="section-title">Words From Our Founder</h2>
+             <div class="owner-content">
+                 <img src="https://res.cloudinary.com/dzdinuw5d/image/upload/v1754038926/WhatsApp_Image_2025-07-31_at_6.28.54_PM_1_tiivhu.jpg"
+                     alt="Founder of Bagan Chiya Cafe" class="owner-photo">
+                 <div class="owner-text">
+                     <p>"At Bagan Chiya Cafe, we pour our heart into every cup. Our mission is to share the rich tea
+                         culture
+                         of Nepal with the world, using only the finest ingredients. Come join us for a taste of
+                         tradition!"
+                     </p>
+                     <p class="owner-signature">- Sandip Giree, Founder</p>
+                 </div>
+             </div>
+         </div>
+     </section>
+     <section class="why-us-section section">
+         <div class="section-container">
+             <h2 class="section-title">Why Choose Us</h2>
+             <div class="why-us-cards">
+                 <div class="why-us-card">
+                     <i class="fas fa-leaf"></i>
+                     <h3>Organic Ingredients</h3>
+                     <p>We use only the finest organic teas and herbs sourced locally.</p>
+                 </div>
+                 <div class="why-us-card">
+                     <i class="fas fa-smile"></i>
+                     <h3>Friendly Service</h3>
+                     <p>Our staff ensures a warm and welcoming experience every time.</p>
+                 </div>
+                 <div class="why-us-card">
+                     <i class="fas fa-heart"></i>
+                     <h3>Authentic Taste</h3>
+                     <p>Experience the true essence of Nepali tea culture.</p>
+                 </div>
+             </div>
+         </div>
+     </section>
 
-<section class="additional-sections section">
-    <div class="section-container">
-        <div class="sections-container">
-            <div class="section-card menu-section">
-                <h2 class="section-title">Explore Our Menu</h2>
-                <p>Discover a variety of teas, snacks, and more crafted with love.</p>
-                <a href="{{ route('menu') }}" class="section-link">View Menu <i class="fas fa-arrow-right"></i></a>
-            </div>
-            <div class="section-card events-section">
-                <h2 class="section-title">Upcoming Events</h2>
-                <p>Join us for tea tasting and cultural events this month!</p>
-                <a href="https://www.instagram.com/bagan_chiya/?hl=en" class="section-link">See Events <i
-                        class="fas fa-calendar" target="_blank"></i></a>
-            </div>
-        </div>
-    </div>
-</section>
-<script>
-    function showLightbox(src, title, description) {
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
-        const lightboxTitle = document.getElementById('lightbox-title');
-        const lightboxDescription = document.getElementById('lightbox-description');
+     <section class="testimonials-section section">
+         <div class="section-container">
+             <h2 class="section-title">What Our Customers Say</h2>
+             <div class="testimonial-cards">
+                 <div class="testimonial-card">
+                     <p class="testimonial-text">"Great place to hang out!! Matka tea and banana chips were so
+                         delicious!"
+                     </p>
+                     <div class="rating">
+                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                             class="fas fa-star"></i><i class="fas fa-star"></i>
+                     </div>
+                     <p class="testimonial-author">- Kalpana Panday</p>
+                 </div>
+                 <div class="testimonial-card">
+                     <p class="testimonial-text">"Great place for tea lovers!! Especially, Bagan special tea!"</p>
+                     <div class="rating">
+                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                             class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                     </div>
+                     <p class="testimonial-author">- Jibit Khanal</p>
+                 </div>
+                 <div class="testimonial-card">
+                     <p class="testimonial-text">"Best and affordable Cafe"</p>
+                     <div class="rating">
+                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                             class="fas fa-star"></i><i class="fas fa-star"></i>
+                     </div>
+                     <p class="testimonial-author">-
+                         Sudin Bikram Thapa</p>
+                 </div>
+                 <div class="testimonial-card">
+                     <p class="testimonial-text">"Atmosphere was amazing!! Will recommend!<br>
+                         Food: 5<br>
+                         Service: 5<br>
+                         Atmosphere: 5
+                         "</p>
+                     <div class="rating">
+                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                             class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                     </div>
+                     <p class="testimonial-author">-
+                         Kishan Bist</p>
+                 </div>
+             </div>
+         </div>
+     </section>
 
-        lightboxImg.src = src;
-        lightboxTitle.textContent = title;
-        lightboxDescription.textContent = description;
-        lightbox.classList.add('active');
-    }
 
-    function closeLightbox() {
-        const lightbox = document.getElementById('lightbox');
-        lightbox.classList.remove('active');
-    }
-</script>
+
+     <section class="tea-section section">
+         <div class="section-container">
+             <h2 class="section-title">Special Offer</h2>
+             <div class="tea-cards">
+                 <div class="tea-card">
+                     <h3>Bagan Chiya</h3>
+                     <p>Authentic Nepali tea with a rich, aromatic flavor.</p>
+                     <p class="tea-price">Price: Rs 250</p>
+                 </div>
+                 <div class="tea-card">
+                     <h3>Bagan Boba Tea</h3>
+                     <p>Creamy tea with chewy tapioca pearls.</p>
+                     <p class="tea-price">Price: <s>Rs 300</s> <span class="discount-price">Rs 250</span> (17% OFF)
+                     </p>
+                     <p class="discount-note">Limited time offer! Use code <strong>BOBA17</strong> at checkout.</p>
+                 </div>
+                 <div class="tea-card">
+                     <h3>Herbal Bliss</h3>
+                     <p>Soothing herbal infusion with local herbs.</p>
+                     <p class="tea-price">Price: Rs 275</p>
+                 </div>
+             </div>
+         </div>
+     </section>
+
+
+
+     <section class="additional-sections section">
+         <div class="section-container">
+             <div class="sections-container">
+                 <div class="section-card menu-section">
+                     <h2 class="section-title">Explore Our Menu</h2>
+                     <p>Discover a variety of teas, snacks, and more crafted with love.</p>
+                     <a href="{{ route('menu') }}" class="section-link">View Menu <i
+                             class="fas fa-arrow-right"></i></a>
+                 </div>
+                 <div class="section-card events-section">
+                     <h2 class="section-title">Upcoming Events</h2>
+                     <p>Join us for tea tasting and cultural events this month!</p>
+                     <a href="https://www.instagram.com/bagan_chiya/?hl=en" class="section-link">See Events <i
+                             class="fas fa-calendar" target="_blank"></i></a>
+                 </div>
+             </div>
+         </div>
+     </section>
+     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+     <script>
+         $(document).ready(function() {
+             $('.tea-gallery-slider').slick({
+                 slidesToShow: 4,
+                 slidesToScroll: 1,
+                 autoplay: true,
+                 autoplaySpeed: 4000,
+                 pauseOnHover: true,
+                 arrows: true,
+                 dots: true,
+                 infinite: true,
+                 speed: 600,
+                 cssEase: 'ease',
+                 responsive: [{
+                         breakpoint: 1024,
+                         settings: {
+                             slidesToShow: 4,
+                             slidesToScroll: 1
+                         }
+                     },
+                     {
+                         breakpoint: 768,
+                         settings: {
+                             slidesToShow: 2,
+                             slidesToScroll: 1
+                         }
+                     },
+                     {
+                         breakpoint: 480,
+                         settings: {
+                             slidesToShow: 1,
+                             slidesToScroll: 1
+                         }
+                     }
+                 ]
+             });
+
+             // Add stagger animation to gallery items
+             $('.tea-gallery-section .gallery-item').each(function(index) {
+                 $(this).css('animation-delay', `${index * 0.1}s`);
+             });
+
+             // Intersection Observer for animation
+             const observerOptions = {
+                 threshold: 0.1,
+                 rootMargin: '0px 0px -50px 0px'
+             };
+
+             const observer = new IntersectionObserver(function(entries) {
+                 entries.forEach(entry => {
+                     if (entry.isIntersecting) {
+                         entry.target.style.animationPlayState = 'running';
+                     }
+                 });
+             }, observerOptions);
+
+             $('.tea-gallery-section .gallery-item').each(function() {
+                 this.style.animationPlayState = 'paused';
+                 observer.observe(this);
+             });
+         });
+
+         // Lightbox functionality
+         function openLightbox(src, title, description, date) {
+             const lightbox = document.getElementById('lightbox');
+             const img = document.getElementById('lightbox-img');
+             const titleEl = document.getElementById('lightbox-title');
+             const descEl = document.getElementById('lightbox-description');
+             const dateEl = document.getElementById('lightbox-date');
+
+             img.src = src;
+             titleEl.textContent = title;
+             descEl.textContent = description;
+             dateEl.textContent = date;
+
+             lightbox.classList.add('active');
+             document.body.style.overflow = 'hidden';
+         }
+
+         function closeLightbox() {
+             const lightbox = document.getElementById('lightbox');
+             lightbox.classList.remove('active');
+             document.body.style.overflow = 'auto';
+         }
+
+         // Handle escape key for lightbox
+         document.addEventListener('keydown', function(e) {
+             if (e.key === 'Escape') {
+                 closeLightbox();
+             }
+         });
+     </script>

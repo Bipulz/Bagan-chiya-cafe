@@ -41,6 +41,9 @@
         </div>
     </div>
     <div class="footer-bottom">
-        <p>&copy; 2025 Bagan Chiya Cafe. All rights reserved. | Bringing authentic Nepali flavors since 2015</p>
+        <p>&copy; 2025 Bagan Chiya Cafe. All rights reserved. | Bringing authentic Nepali flavors since 2081
+            <br> Designed By <a href="https://github.com/Bipulz" style="color: green; text-decoration: none;"
+                target="_blank">Bipul Bhandari</a>
+        </p>
     </div>
 </footer>

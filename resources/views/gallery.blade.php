@@ -222,10 +222,10 @@
 
             <div class="photo-gallery__load-more">
                 <button class="photo-gallery__load-more-btn" onclick="loadMorePhotos()">
-                    <i class="fas fa-plus"></i> Load More Photos
+                    <i class="fas fa-plus"></i> Show more
                 </button>
                 <button class="photo-gallery__unload-btn hidden" onclick="unloadPhotos()">
-                    <i class="fas fa-minus"></i> Unload Photos
+                    <i class="fas fa-minus"></i> Show less
                 </button>
             </div>
 

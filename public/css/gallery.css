@@ -204,7 +204,7 @@ body {
 }
 
 .photo-gallery__item:hover .photo-gallery__overlay-content {
-    transform: translateY(0);
+    transform: translateY(1);
 }
 
 .photo-gallery__overlay h3 {
