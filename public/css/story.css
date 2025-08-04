@@ -15,7 +15,7 @@ body {
 /* Hero Section */
 .story-hero {
     position: relative;
-    min-height: 100vh;
+    min-height: 110vh;
     color: white;
     display: flex;
     align-items: center;
@@ -662,84 +662,101 @@ h1 span {
 
 @media (max-width: 768px) {
     .story-hero {
-        min-height: 85vh;
+        min-height: 80vh;
+        padding: 2rem 1rem;
+        text-align: center;
     }
 
     h1 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
 
     h1 span {
-        font-size: 2.8rem;
+        font-size: 2.5rem;
     }
 
     .description {
         font-size: 1rem;
+        line-height: 1.6;
     }
 
     .story-container {
-        padding: 4rem 1.2rem;
+        padding: 3rem 1rem;
     }
 
     .enhanced-gallery {
+        display: grid;
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: 1.2rem;
     }
 
-    .mission-section h2 {
-        font-size: 2.5rem;
+    .mission-section h2,
+    .section-title {
+        font-size: 2.2rem;
+        text-align: center;
     }
 
     .mission-section p {
-        font-size: 1.1rem;
+        font-size: 1rem;
+        line-height: 1.6;
+        padding: 0 0.5rem;
     }
 
-    .section-title {
-        font-size: 2.5rem;
+    .timeline::after {
+        content: none;
     }
 }
 
 @media (max-width: 480px) {
+       .story-hero {
+        min-height: 100vh;
+        padding: 2rem 1rem;
+        text-align: center;
+    }
     .hero-content {
-        padding: 1.2rem;
+        padding: 1rem 0.8rem;
+        text-align: center;
     }
 
     h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 
     h1 span {
-        font-size: 2.3rem;
+        font-size: 2rem;
     }
 
     .description {
         font-size: 0.9rem;
+        line-height: 1.5;
     }
 
     .story-container {
-        padding: 3rem 0.8rem;
+        padding: 2rem 0.8rem;
     }
 
     .values-grid {
+        display: grid;
         grid-template-columns: 1fr;
+        gap: 1.2rem;
     }
 
     .mission-section {
-        padding: 3rem 0;
-        margin: 3rem 0;
+        padding: 2.5rem 1rem;
+        margin: 2rem 0;
     }
 
     .journey-section {
-        padding: 1.5rem 0.8rem;
+        padding: 1.2rem 0.8rem;
     }
 
     .cta-section {
-        padding: 2.5rem 0.8rem;
-        margin: 5rem 0 3rem;
+        padding: 2rem 1rem;
+        margin: 4rem 0 2rem;
+        text-align: center;
     }
-}
-@media (max-width: 768px) {
-    .timeline::after {
-        content: none;
+
+    .section-title {
+        font-size: 2rem;
     }
 }

@@ -478,7 +478,7 @@ body {
 
 @media (max-width: 480px) {
     .menu-hero {
-        min-height: 60vh;
+        min-height: 95vh;
         height: auto;
     }
 
