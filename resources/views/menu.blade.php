@@ -149,7 +149,12 @@
         <h2>Visit Bagan Chiya Cafe</h2>
         <p>Experience our delicious offerings and join our community of tea lovers. Subscribe to our newsletter for
             exclusive offers and updates!</p>
-        <button class="cta-button">Join Our Community</button>
+
+        <a href="https://www.facebook.com/p/Bagan-%E0%A4%9A%E0%A4%BF%E0%A4%AF%E0%A4%BE-Cafe-61564573427193/?_rdr"
+            target="_blank" class="cta-button">
+            Join Our Community
+        </a>
+
     </section>
     @include('layouts.footer')
 
