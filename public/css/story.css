@@ -380,13 +380,17 @@ h1 span {
 
 /* Mission Section */
 .mission-section {
-    background: linear-gradient(135deg, #2f7b3e 0%, #1e5a2e 100%);
+    margin: 4rem auto;
+    padding: 3rem 2rem;
+    max-width: 900px;
+    background: linear-gradient(135deg, #2f7b3e, #1e3a2e);
+    text-align: center;
     color: white;
-    padding: 5rem 0;
-    margin: 5rem 0;
-    border-radius: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     position: relative;
     overflow: hidden;
+    z-index: 1;
 }
 
 .mission-section::before {
@@ -396,34 +400,40 @@ h1 span {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: 
-        radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
-    transform: rotate(45deg);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    animation: float 6s ease-in-out infinite;
 }
 
 .mission-content {
     position: relative;
     z-index: 2;
-    text-align: center;
-    max-width: 850px;
+    max-width: 800px;
     margin: 0 auto;
     padding: 0 1.5rem;
 }
 
 .mission-section h2 {
-    font-size: 3.2rem;
-    margin-bottom: 2rem;
+    font-size: clamp(2.5rem, 4vw, 3.2rem);
+    margin-bottom: 1.5rem;
     font-family: 'Great Vibes', cursive;
     text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2);
     letter-spacing: 0.5px;
+    position: relative;
+    z-index: 2;
 }
 
 .mission-section p {
-    font-size: 1.3rem;
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
     line-height: 1.8;
-    color: rgba(255, 255, 255, 0.97);
     font-weight: 300;
+    color: rgba(255, 255, 255, 0.95);
+    position: relative;
+    z-index: 2;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
 }
 
 /* Values Section */
@@ -726,5 +736,10 @@ h1 span {
     .cta-section {
         padding: 2.5rem 0.8rem;
         margin: 5rem 0 3rem;
+    }
+}
+@media (max-width: 768px) {
+    .timeline::after {
+        content: none;
     }
 }

@@ -1,3 +1,36 @@
+<section class="main-interaction section" id="main-interaction">
+    <h2 class="section-title"><i class="fas fa-leaf icon"></i> Crafting Moment Since 2081</h2>
+    <div class="section-container">
+        <div class="enhanced-gallery" id="main-interaction-grid">
+            <div class="gallery-item" data-tilt data-tilt-max="8" data-tilt-speed="300" data-tilt-perspective="1200">
+                <img src="https://res.cloudinary.com/dzdinuw5d/image/upload/v1754038926/WhatsApp_Image_2025-07-31_at_6.28.54_PM_1_tiivhu.jpg"
+                    alt="Tea Picking"
+                    onclick="showLightbox(this.src, 'Tea Picking', 'Crafting perfection in the fields, August 02, 2025')">
+                <div class="overlay">
+                    <h3>Tea Picking</h3>
+                    <p>Crafting perfection in the fields, August 02, 2025</p>
+                </div>
+            </div>
+            <div class="gallery-item" data-tilt data-tilt-max="8" data-tilt-speed="300" data-tilt-perspective="1200">
+                <img src="https://res.cloudinary.com/dzdinuw5d/image/upload/v1754038927/WhatsApp_Image_2025-07-31_at_6.28.55_PM_2_x7xcer.jpg"
+                    alt="Processing Tea"
+                    onclick="showLightbox(this.src, 'Processing Tea', 'Artisanal processing, July 2025')">
+                <div class="overlay">
+                    <h3>Processing Tea</h3>
+                    <p>Artisanal processing, July 2025</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lightbox" id="lightbox">
+        <span class="close-btn" onclick="closeLightbox()">&times;</span>
+        <img id="lightbox-img" src="" alt="Lightbox Image">
+        <div class="lightbox-content">
+            <h3 id="lightbox-title"></h3>
+            <p id="lightbox-description"></p>
+        </div>
+    </div>
+</section>
 <section class="why-us-section section">
     <div class="section-container">
         <h2 class="section-title">Why Choose Us</h2>
@@ -67,8 +100,10 @@
             <img src="https://res.cloudinary.com/dzdinuw5d/image/upload/v1754038926/WhatsApp_Image_2025-07-31_at_6.28.54_PM_1_tiivhu.jpg"
                 alt="Founder of Bagan Chiya Cafe" class="owner-photo">
             <div class="owner-text">
-                <p>"At Bagan Chiya Cafe, we pour our heart into every cup. Our mission is to share the rich tea culture
-                    of Nepal with the world, using only the finest ingredients. Come join us for a taste of tradition!"
+                <p>"At Bagan Chiya Cafe, we pour our heart into every cup. Our mission is to share the rich tea
+                    culture
+                    of Nepal with the world, using only the finest ingredients. Come join us for a taste of
+                    tradition!"
                 </p>
                 <p class="owner-signature">- Rajesh Sharma, Founder</p>
             </div>
@@ -119,3 +154,21 @@
         </div>
     </div>
 </section>
+<script>
+    function showLightbox(src, title, description) {
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxTitle = document.getElementById('lightbox-title');
+        const lightboxDescription = document.getElementById('lightbox-description');
+
+        lightboxImg.src = src;
+        lightboxTitle.textContent = title;
+        lightboxDescription.textContent = description;
+        lightbox.classList.add('active');
+    }
+
+    function closeLightbox() {
+        const lightbox = document.getElementById('lightbox');
+        lightbox.classList.remove('active');
+    }
+</script>

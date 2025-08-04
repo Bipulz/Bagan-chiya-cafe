@@ -1,5 +1,4 @@
 
-
 body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
@@ -18,6 +17,8 @@ body {
     background: linear-gradient(135deg, #f8fff0 0%, #e0f0e0 50%, #f0faf0 100%);
     padding: 1.5rem;
     overflow: hidden;
+    z-index: 0;
+
     
 }
 
@@ -548,43 +549,71 @@ body {
 }
 
 .cta-section {
-    margin: 4rem 0;
-    padding: 2.5rem 1.5rem;
-    background: linear-gradient(135deg, #2f7b3e 0%, #1e5a2e 100%);
+    margin: 4rem auto;
+    padding: 3rem 2rem;
+    max-width: 900px;
+    background: linear-gradient(135deg, #2f7b3e, #1e3a2e);
     text-align: center;
     color: white;
-    border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-    animation: fadeInUp 1.2s ease-out;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    animation: float 6s ease-in-out infinite;
 }
 
 .cta-section h2 {
-    font-size: 2rem;
-    font-family: 'Poppins', sans-serif;
-    margin-bottom: 1.2rem;
+    font-size: clamp(2.5rem, 4vw, 3.2rem);
+    font-family: 'Great Vibes', cursive;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 2;
 }
 
 .cta-section p {
-    font-size: 1rem;
+    font-size: clamp(1rem, 1.5vw, 1.1rem);
     max-width: 600px;
-    margin: 0 auto 1.5rem;
-    line-height: 1.6;
+    margin: 0 auto 2rem;
+    font-weight: 500;
+    position: relative;
+    z-index: 2;
 }
 
-.cta-section .cta-button {
-    padding: 0.8rem 2rem;
-    background: #f8fafc;
+.cta-button {
+    padding: 15px 35px;
+    background: white;
     color: #2f7b3e;
     border: none;
-    border-radius: 20px;
-    font-size: 0.9rem;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 700;
     cursor: pointer;
-    transition: background 0.3s ease, transform 0.3s ease;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    position: relative;
+    z-index: 2;
 }
 
-.cta-section .cta-button:hover {
-    background: #e0e0e0;
-    transform: translateY(-2px);
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
 }
 
 @keyframes fadeIn {

@@ -212,11 +212,11 @@
         </div>
     </section>
 
-    <section class="cta-section" id="cta-section">
+    <section class="cta-section">
         <h2>Visit Bagan Chiya Cafe</h2>
-        <p>Experience the finest teas and join our community. Subscribe to our newsletter for exclusive offers and
-            updates!</p>
-        <button class="cta-button">Join Now</button>
+        <p>Experience our delicious offerings and join our community of tea lovers. Subscribe to our newsletter for
+            exclusive offers and updates!</p>
+        <button class="cta-button">Join Our Community</button>
     </section>
     @include('layouts.footer')
 

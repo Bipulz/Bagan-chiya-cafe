@@ -147,8 +147,9 @@
 
     <section class="cta-section">
         <h2>Visit Bagan Chiya Cafe</h2>
-        <p>Experience our offerings and join our community. Subscribe to our newsletter for exclusive offers!</p>
-        <button class="cta-button">Join Now</button>
+        <p>Experience our delicious offerings and join our community of tea lovers. Subscribe to our newsletter for
+            exclusive offers and updates!</p>
+        <button class="cta-button">Join Our Community</button>
     </section>
     @include('layouts.footer')
 
