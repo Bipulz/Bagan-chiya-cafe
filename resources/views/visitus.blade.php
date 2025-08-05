@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About Us - Bagan Chiya Cafe</title>
     @include('layouts.links')
-    <link href="{{ asset('css/visitus.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/visitus.css') }}?ver={{ config('app.asset_version') }}" rel="stylesheet">
 
 </head>
 
@@ -87,7 +87,7 @@
         </div>
     </div>
     @include('layouts.footer')
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}?ver={{ config('app.asset_version') }}"></script>
 </body>
 
 </html>

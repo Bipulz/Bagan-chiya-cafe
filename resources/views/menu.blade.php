@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Menu - Bagan Chiya Cafe</title>
     @include('layouts.links')
-    <link href="{{ asset('css/menu.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/menu.css') }}?ver={{ config('app.asset_version') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -98,12 +98,6 @@
                     <li class="menu-item"><span>Paneer Thuppa</span><span class="price">Rs. 80</span></li>
                 </ul>
             </div>
-
-
-
-
-
-
             <div class="menu-category">
                 <h3><i class="fas fa-coffee"></i> Sattu & Coffee</h3>
                 <ul class="menu-item-list">
@@ -192,7 +186,7 @@
             dateElement.textContent = `Explore our fresh offerings available today, ${dayName}.`;
         });
     </script>
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="?ver={{ config('app.asset_version') }}"></script>
 </body>
 
 </html>

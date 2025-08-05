@@ -6,81 +6,143 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bagan Chiya Cafe Admin</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e0f0e0 100%);
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #f4f9f4 0%, #e8f5e9 100%);
+            margin: 0;
             display: flex;
-            height: 100vh;
-            color: #2c3e50;
+            min-height: 100vh;
+            color: #1a3c34;
         }
 
         .sidebar {
             width: 280px;
-            background: linear-gradient(180deg, #2f7b3e 0%, #1e3a2e 100%);
+            background: linear-gradient(180deg, #276a2a 0%, #1b5e20 100%);
             color: #ffffff;
             padding: 30px 20px;
-            box-shadow: 8px 0 30px rgba(0, 0, 0, 0.2);
-            transition: width 0.3s ease;
+            box-shadow: 8px 0 25px rgba(0, 0, 0, 0.2);
+            transition: width 0.3s ease, transform 0.3s ease;
+            animation: slideIn 0.6s ease-in-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+            }
+
+            to {
+                transform: translateX(0);
+            }
         }
 
         .sidebar .header {
             display: flex;
+            flex-direction: column;
             align-items: center;
             gap: 12px;
-            margin-bottom: 12px;
+            margin-bottom: 25px;
+            text-align: center;
         }
 
-        .sidebar h2 {
-            margin: 0;
-            font-size: 1.9em;
-            font-weight: 700;
+        .sidebar .header i {
+            font-size: 2.5em;
+            color: #81c784;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px;
+            border-radius: 50%;
+            transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+        }
+
+        .sidebar .header i:hover {
+            transform: scale(1.15);
+            background: rgba(255, 255, 255, 0.2);
             color: #ffffff;
         }
 
+        .sidebar .header-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .sidebar .header-text .bagan {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -0.01em;
+            line-height: 1.2;
+        }
+
+        .sidebar .header-text .chiya-cafe {
+            font-size: 1.2em;
+            font-weight: 500;
+            color: #c8e6c9;
+            letter-spacing: 0.02em;
+        }
+
         .sidebar .admin-label {
-            font-size: 0.95em;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 5px 12px;
-            border-radius: 12px;
-            color: #2f7b3e;
+            font-size: 0.85em;
+            background: #ffffff;
+            padding: 8px 16px;
+            border-radius: 16px;
+            color: #2e7d32;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            margin-bottom: 20px;
+            gap: 8px;
+            margin-bottom: 30px;
+            font-weight: 500;
+            margin-left: 3rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, background 0.3s ease;
         }
 
         .sidebar .admin-label i {
-            font-size: 0.95em;
+            font-size: 0.9em;
         }
+
+        .sidebar .admin-label:hover {
+            transform: translateY(-2px);
+            background: #f4f9f4;
+        }
+
 
         .sidebar ul {
             list-style: none;
             padding: 0;
-            margin: 25px 0 0 0;
+            margin: 35px 0 0 0;
         }
 
         .sidebar ul li {
             padding: 18px 20px;
-            margin: 6px 0;
-            color: #f1f5f9;
+            margin: 8px 0;
+            color: #c8e6c9;
             cursor: pointer;
             display: flex;
             align-items: center;
             gap: 14px;
-            font-size: 1.15em;
+            font-size: 1.1em;
             font-weight: 500;
+            border-radius: 10px;
             transition: all 0.3s ease;
         }
 
         .sidebar ul li i {
-            font-size: 1.25em;
-            color: #4a9c5c;
+            font-size: 1.3em;
+            color: #81c784;
+            transition: color 0.3s ease;
         }
 
         .sidebar ul li:hover {
+            background: rgba(255, 255, 255, 0.15);
             color: #ffffff;
             transform: translateX(5px);
         }
@@ -90,36 +152,113 @@
         }
 
         .sidebar ul li.active {
-            color: #2f7b3e;
+            background: rgba(255, 255, 255, 0.25);
+            color: #ffffff;
+            font-weight: 600;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
         }
 
         .sidebar ul li.active i {
-            color: #2f7b3e;
+            color: #ffffff;
         }
 
+        /* Desktop (default: width >= 1024px) */
+        @media (max-width: 1024px) {
+            .sidebar {
+                width: 240px;
+                padding: 25px 15px;
+            }
+
+            .sidebar .header i {
+                font-size: 2.2em;
+                padding: 10px;
+            }
+
+            .sidebar .header-text .bagan {
+                font-size: 1.6em;
+            }
+
+            .sidebar .header-text .chiya-cafe {
+                font-size: 1.1em;
+            }
+
+            .sidebar .admin-label {
+                font-size: 0.8em;
+                padding: 7px 14px;
+            }
+
+            .sidebar ul li {
+                font-size: 1.05em;
+                padding: 16px 18px;
+            }
+
+            .sidebar ul li i {
+                font-size: 1.25em;
+            }
+        }
+
+        /* Tablet (768px <= width < 1024px) */
         @media (max-width: 768px) {
             .sidebar {
                 width: 80px;
                 padding: 20px 10px;
-                box-shadow: 8px 0 30px rgba(0, 0, 0, 0.2);
             }
 
-            .sidebar h2 {
-                font-size: 1.3em;
+            .sidebar .header i {
+                font-size: 2em;
+                padding: 8px;
             }
 
-            .sidebar .header span,
+            .sidebar .header-text {
+                display: none;
+            }
+
             .sidebar .admin-label {
                 display: none;
+            }
+
+            .sidebar ul {
+                margin-top: 20px;
             }
 
             .sidebar ul li {
                 justify-content: center;
                 padding: 15px;
+                margin: 6px 0;
             }
 
             .sidebar ul li span {
                 display: none;
+            }
+
+            .sidebar ul li i {
+                font-size: 1.4em;
+            }
+
+            .sidebar ul li:hover {
+                transform: none;
+                background: rgba(255, 255, 255, 0.25);
+            }
+        }
+
+        /* Mobile (width < 768px) */
+        @media (max-width: 480px) {
+            .sidebar {
+                width: 60px;
+                padding: 15px 5px;
+            }
+
+            .sidebar .header i {
+                font-size: 1.8em;
+                padding: 6px;
+            }
+
+            .sidebar ul li {
+                padding: 12px;
+            }
+
+            .sidebar ul li i {
+                font-size: 1.3em;
             }
         }
     </style>
@@ -128,18 +267,31 @@
 <body>
     <div class="sidebar">
         <div class="header">
-            <i class="fas fa-mug-hot"></i>
-            <h2><span>Bagan Chiya Cafe</span></h2>
+            <i class="fas fa-leaf"></i>
+            <div class="header-text">
+                <span class="bagan">Bagan</span>
+                <span class="chiya-cafe">Chiya Cafe</span>
+            </div>
         </div>
         <div class="admin-label"><i class="fas fa-user-shield"></i> Admin Panel</div>
         <ul>
-            <li><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></li>
-            <li><i class="fas fa-utensils"></i><span>Menu Management</span></li>
+            <li class="active"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></li>
+            <li><i class="fas fa-utensils"></i><span>Menu </span></li>
             <li><i class="fas fa-book-open"></i><span>Our Story</span></li>
             <li><i class="fas fa-images"></i><span>Gallery</span></li>
             <li><i class="fas fa-info-circle"></i><span>About Us</span></li>
+
+
         </ul>
     </div>
+    <script>
+        document.querySelectorAll('.sidebar ul li').forEach(item => {
+            item.addEventListener('click', () => {
+                document.querySelectorAll('.sidebar ul li').forEach(i => i.classList.remove('active'));
+                item.classList.add('active');
+            });
+        });
+    </script>
 </body>
 
 </html>

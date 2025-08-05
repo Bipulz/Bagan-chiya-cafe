@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gallery - Bagan Chiya Cafe</title>
     @include('layouts.links')
-    <link href="{{ asset('css/gallery.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/gallery.css') }}?ver={{ config('app.asset_version') }}" rel="stylesheet">
 
 </head>
 
@@ -330,8 +330,8 @@
             this.querySelector('input').click();
         });
     </script>
-    <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('js/gallery.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}?ver={{ config('app.asset_version') }}"></script>
+    <script src="{{ asset('js/gallery.js') }}?ver={{ config('app.asset_version') }}"></script>
 
 </body>
 
