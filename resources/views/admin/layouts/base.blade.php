@@ -7,6 +7,7 @@
     <title>Bagan Chiya Cafe Admin</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    @stack('styles')
     <style>
         * {
             margin: 0;
@@ -30,17 +31,6 @@
             padding: 30px 20px;
             box-shadow: 8px 0 25px rgba(0, 0, 0, 0.2);
             transition: width 0.3s ease, transform 0.3s ease;
-            animation: slideIn 0.6s ease-in-out;
-        }
-
-        @keyframes slideIn {
-            from {
-                transform: translateX(-100%);
-            }
-
-            to {
-                transform: translateX(0);
-            }
         }
 
         .sidebar .header {
@@ -113,7 +103,6 @@
             transform: translateY(-2px);
             background: #f4f9f4;
         }
-
 
         .sidebar ul {
             list-style: none;
@@ -275,15 +264,36 @@
         </div>
         <div class="admin-label"><i class="fas fa-user-shield"></i> Admin Panel</div>
         <ul>
-            <li class="active"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></li>
-            <li><i class="fas fa-utensils"></i><span>Menu </span></li>
-            <li><i class="fas fa-book-open"></i><span>Our Story</span></li>
-            <li><i class="fas fa-images"></i><span>Gallery</span></li>
-            <li><i class="fas fa-info-circle"></i><span>About Us</span></li>
-
-
+            <li>
+                <a href="{{ route('admin.dashboard.index') }}" style="color: inherit; text-decoration: none;">
+                    <i class="fas fa-tachometer-alt"></i><span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('admin.menu.index') }}" style="color: inherit; text-decoration: none;">
+                    <i class="fas fa-utensils"></i><span>Menu</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('admin.story.index') }}" style="color: inherit; text-decoration: none;">
+                    <i class="fas fa-book-open"></i><span>Our Story</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('admin.gallery.index') }}" style="color: inherit; text-decoration: none;">
+                    <i class="fas fa-images"></i><span>Gallery</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('admin.about.index') }}" style="color: inherit; text-decoration: none;">
+                    <i class="fas fa-info-circle"></i><span>About Us</span>
+                </a>
+            </li>
         </ul>
     </div>
+    <main style="flex:1;padding:30px;">
+        @yield('content')
+    </main>
     <script>
         document.querySelectorAll('.sidebar ul li').forEach(item => {
             item.addEventListener('click', () => {
@@ -292,6 +302,7 @@
             });
         });
     </script>
+    @stack('scripts')
 </body>
 
 </html>
