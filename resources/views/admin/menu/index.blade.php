@@ -1,6 +1,21 @@
 @extends('admin.layouts.base')
 @section('content')
     <div class="main-content">
+        <!-- Menu Hero Section -->
+        <section class="menu-hero">
+            <div class="hero-content">
+                <h1>{{ $heroTitle ?? 'Our Menu' }}</h1>
+                <h1><span>{{ $heroSubtitle ?? 'Savor the Essence' }}</span></h1>
+                <p id="dynamic-date">{{ $heroDescription ?? 'Explore our fresh offerings available today, Thursday.' }}</p>
+                <div class="actions">
+                    <button class="edit-hero-btn"
+                        onclick="openEditHeroOverlay('{{ $heroTitle ?? 'Our Menu' }}', '{{ $heroSubtitle ?? 'Savor the Essence' }}', '{{ $heroDescription ?? 'Explore our fresh offerings available today, Thursday.' }}')">
+                        <i class="fas fa-edit"></i> Edit Hero
+                    </button>
+                </div>
+            </div>
+        </section>
+
         <!-- Menu Preview Section -->
         <div class="preview-section">
             <div class="preview-header">
@@ -17,7 +32,6 @@
             <div class="category-grid">
                 @foreach ($categories as $category)
                     <div class="category-card" data-name="{{ $category->name }}" data-icon="{{ $category->icon }}">
-
                         <div class="category-header">
                             <h3><i class="fas {{ $category->icon }}"></i> {{ $category->name }}</h3>
                             <div class="actions">
@@ -72,6 +86,81 @@
             </div>
         </div>
 
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <div class="cta-header">
+                <h2>Call to Action</h2>
+                <div class="actions">
+                    <button class="edit-cta-btn" onclick="openEditCtaOverlay()">
+                        <i class="fas fa-edit"></i> Edit CTA
+                    </button>
+                </div>
+            </div>
+            <div class="cta-content">
+                <h3>{{ $ctaTitle }}</h3>
+                <p>{{ $ctaText }}</p>
+                <a href="{{ $ctaLink }}" class="cta-button">{{ $ctaButton }}</a>
+            </div>
+        </div>
+
+        <!-- Overlay for Edit Hero Section -->
+        <div class="overlay" id="editHeroOverlay">
+            <div class="overlay-content">
+                <button class="close-btn" onclick="closeEditHeroOverlay()"><i class="fas fa-times"></i></button>
+                <div class="form-section">
+                    <h2>Edit Hero Section</h2>
+                    <form id="editHeroForm" method="POST" action="{{ route('admin.menu.hero.update') }}">
+                        @csrf
+                        <div class="form-group">
+                            <label>Title</label>
+                            <input id="editHeroTitle" name="hero_title" type="text"
+                                value="{{ $heroTitle ?? 'Our Menu' }}" required />
+                        </div>
+                        <div class="form-group">
+                            <label>Subtitle</label>
+                            <input id="editHeroSubtitle" name="hero_subtitle" type="text"
+                                value="{{ $heroSubtitle ?? 'Savor the Essence' }}" required />
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea id="editHeroDescription" name="hero_description" required>{{ $heroDescription ?? 'Explore our fresh offerings available today, Thursday.' }}</textarea>
+                        </div>
+                        <button type="submit"><i class="fas fa-save"></i> Save Hero</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Overlay for Edit CTA Section -->
+        <div class="overlay" id="editCtaOverlay">
+            <div class="overlay-content">
+                <button class="close-btn" onclick="closeEditCtaOverlay()"><i class="fas fa-times"></i></button>
+                <div class="form-section">
+                    <h2>Edit CTA Section</h2>
+                    <form id="editCtaForm" method="POST" action="{{ route('admin.menu.cta.update') }}">
+                        @csrf
+                        <div class="form-group">
+                            <label>CTA Title</label>
+                            <input name="cta_title" type="text" value="{{ $ctaTitle }}" required />
+                        </div>
+                        <div class="form-group">
+                            <label>CTA Text</label>
+                            <textarea name="cta_text" required>{{ $ctaText }}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>CTA Link</label>
+                            <input name="cta_link" type="url" value="{{ $ctaLink }}" required />
+                        </div>
+                        <div class="form-group">
+                            <label>CTA Button Text</label>
+                            <input name="cta_button" type="text" value="{{ $ctaButton }}" required />
+                        </div>
+                        <button type="submit"><i class="fas fa-save"></i> Save CTA</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
         <!-- Overlay for Add Category -->
         <div class="overlay" id="categoryOverlay">
             <div class="overlay-content">
@@ -87,8 +176,8 @@
                         <div class="form-group">
                             <label>Category Icon (Font Awesome Class)</label>
                             <input type="text" name="icon" placeholder="e.g., fa-mug-hot" />
-                            <a href="https://fontawesome.com/search?o=r&m=free" target="_blank" class="icon-link">View Font
-                                Awesome Icons</a>
+                            <a href="https://fontawesome.com/search?o=r&m=free" target="_blank" class="icon-link">View
+                                Font Awesome Icons</a>
                         </div>
                         <button type="submit"><i class="fas fa-save"></i> Save Category</button>
                     </form>
@@ -112,15 +201,14 @@
                         <div class="form-group">
                             <label>Category Icon (Font Awesome Class)</label>
                             <input id="editCategoryIcon" name="icon" type="text" />
-                            <a href="https://fontawesome.com/search?o=r&m=free" target="_blank" class="icon-link">View Font
-                                Awesome Icons</a>
+                            <a href="https://fontawesome.com/search?o=r&m=free" target="_blank" class="icon-link">View
+                                Font Awesome Icons</a>
                         </div>
                         <button type="submit"><i class="fas fa-save"></i> Save Changes</button>
                     </form>
                 </div>
             </div>
         </div>
-
 
         <!-- Overlay for Edit Menu Title -->
         <div class="overlay" id="editTitleOverlay">
@@ -217,26 +305,71 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
         <style>
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-            }
-
-            body {
-                font-family: 'Poppins', sans-serif;
-                background: linear-gradient(135deg, #edf7ee 0%, #f3f6f3 100%);
-                margin: 0;
-                min-height: 100vh;
-                color: #1a3c34;
-            }
-
             .main-content {
                 padding: 16px;
                 background: radial-gradient(circle, #ffffff 0%, #f9faf9 100%);
                 margin: 12px;
                 border-radius: 10px;
                 box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+            }
+
+            .menu-hero {
+                padding: 16px;
+                background: #ffffff;
+                border-radius: 10px;
+                margin-bottom: 16px;
+                border-left: 3px solid #2a8b4e;
+            }
+
+            .hero-content {
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 1.5em;
+                color: #1a3c34;
+            }
+
+            .hero-content h1 span {
+                color: #2a8b4e;
+            }
+
+            .hero-content p {
+                font-size: 0.9em;
+                color: #4a5568;
+                margin: 8px 0;
+            }
+
+            .hero-content .actions {
+                display: flex;
+                justify-content: center;
+                margin-top: 8px;
+            }
+
+            .edit-hero-btn {
+                background: linear-gradient(135deg, #2a8b4e 0%, #1a5630 100%);
+                color: #ffffff;
+                font-weight: 500;
+                font-size: 0.85em;
+                padding: 6px 12px;
+                border: none;
+                border-radius: 16px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            }
+
+            .edit-hero-btn:hover {
+                background: linear-gradient(135deg, #3da65f 0%, #2a8b4e 100%);
+                transform: scale(1.01);
+                box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            .edit-hero-btn:active {
+                transform: scale(1);
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
             }
 
             .preview-section {
@@ -274,11 +407,88 @@
                 gap: 8px;
             }
 
+            .cta-section {
+                margin-top: 24px;
+                padding: 16px;
+                background: #ffffff;
+                border-radius: 10px;
+                border-left: 3px solid #2a8b4e;
+                box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+            }
+
+            .cta-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 12px;
+            }
+
+            .cta-header h2 {
+                font-size: 1.4em;
+                font-weight: 500;
+                color: #2a8b4e;
+                position: relative;
+            }
+
+            .cta-header h2::after {
+                content: '';
+                position: absolute;
+                width: 40px;
+                height: 2px;
+                background: #2a8b4e;
+                bottom: -4px;
+                left: 0;
+                border-radius: 1px;
+            }
+
+            .cta-header .actions {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .cta-content h3 {
+                font-size: 1.2em;
+                font-weight: 500;
+                color: #1a3c34;
+                margin-bottom: 8px;
+            }
+
+            .cta-content p {
+                font-size: 0.95em;
+                color: #4a5568;
+                margin-bottom: 12px;
+            }
+
+            .cta-button {
+                display: inline-block;
+                padding: 8px 16px;
+                background: linear-gradient(135deg, #2a8b4e 0%, #1a5630 100%);
+                color: #ffffff;
+                font-weight: 500;
+                font-size: 0.9em;
+                text-decoration: none;
+                border-radius: 16px;
+                transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            }
+
+            .cta-button:hover {
+                background: linear-gradient(135deg, #3da65f 0%, #2a8b4e 100%);
+                transform: scale(1.01);
+                box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            .cta-button:active {
+                transform: scale(1);
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            }
+
             .add-category-btn,
             .add-item-btn,
             .edit-item-btn,
             .edit-btn,
-            .edit-title-btn {
+            .edit-title-btn,
+            .edit-cta-btn {
                 background: linear-gradient(135deg, #2a8b4e 0%, #1a5630 100%);
                 color: #ffffff;
                 font-weight: 500;
@@ -293,7 +503,8 @@
                 transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
             }
 
-            .edit-title-btn {
+            .edit-title-btn,
+            .edit-cta-btn {
                 font-size: 0.85em;
                 padding: 6px 12px;
             }
@@ -302,7 +513,8 @@
             .add-item-btn:hover,
             .edit-item-btn:hover,
             .edit-btn:hover,
-            .edit-title-btn:hover {
+            .edit-title-btn:hover,
+            .edit-cta-btn:hover {
                 background: linear-gradient(135deg, #3da65f 0%, #2a8b4e 100%);
                 transform: scale(1.01);
                 box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
@@ -312,7 +524,8 @@
             .add-item-btn:active,
             .edit-item-btn:active,
             .edit-btn:active,
-            .edit-title-btn:active {
+            .edit-title-btn:active,
+            .edit-cta-btn:active {
                 transform: scale(1);
                 box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
             }
@@ -532,7 +745,8 @@
             }
 
             .overlay-content .form-section input,
-            .overlay-content .form-section select {
+            .overlay-content .form-section select,
+            .overlay-content .form-section textarea {
                 width: 100%;
                 padding: 8px;
                 border: 1px solid #b8d7bc;
@@ -543,6 +757,11 @@
                 transition: border-color 0.2s ease, box-shadow 0.2s ease;
             }
 
+            .overlay-content .form-section textarea {
+                resize: vertical;
+                min-height: 80px;
+            }
+
             .overlay-content .form-section select:disabled,
             .overlay-content .form-section input:disabled {
                 background: #f0f4f0;
@@ -550,7 +769,8 @@
             }
 
             .overlay-content .form-section input:focus,
-            .overlay-content .form-section select:focus {
+            .overlay-content .form-section select:focus,
+            .overlay-content .form-section textarea:focus {
                 border-color: #3da65f;
                 box-shadow: 0 0 0 2px rgba(61, 166, 95, 0.15);
                 outline: none;
@@ -561,7 +781,7 @@
                 margin-top: 4px;
                 font-size: 0.75em;
                 color: #2a8b4e;
-                text-decoration: underline0;
+                text-decoration: none;
                 transition: color 0.2s ease;
             }
 
@@ -620,8 +840,13 @@
                     padding: 10px;
                 }
 
-                .preview-header h2 {
+                .preview-header h2,
+                .cta-header h2 {
                     font-size: 1.2em;
+                }
+
+                .cta-section {
+                    padding: 12px;
                 }
             }
 
@@ -632,7 +857,8 @@
                     padding: 8px;
                 }
 
-                .preview-header h2 {
+                .preview-header h2,
+                .cta-header h2 {
                     font-size: 1em;
                 }
 
@@ -640,7 +866,9 @@
                 .add-item-btn,
                 .edit-item-btn,
                 .edit-btn,
-                .edit-title-btn {
+                .edit-title-btn,
+                .edit-cta-btn,
+                .edit-hero-btn {
                     padding: 5px 10px;
                     font-size: 0.8em;
                 }
@@ -663,12 +891,50 @@
                     padding: 6px;
                     font-size: 0.8em;
                 }
+
+                .cta-section {
+                    padding: 10px;
+                }
+
+                .cta-content h3 {
+                    font-size: 1em;
+                }
+
+                .cta-content p {
+                    font-size: 0.85em;
+                }
+
+                .cta-button {
+                    padding: 6px 12px;
+                    font-size: 0.85em;
+                }
             }
         </style>
     @endpush
 
     @push('scripts')
         <script>
+            // Update dynamic date
+            document.addEventListener('DOMContentLoaded', function() {
+                const dateElement = document.getElementById('dynamic-date');
+                const today = new Date('2025-08-07T11:18:00+05:45');
+                const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+                const dayName = days[today.getDay()];
+                dateElement.textContent = `Explore our fresh offerings available today, ${dayName}.`;
+            });
+
+            function openEditHeroOverlay(title, subtitle, description) {
+                closeAllOverlays();
+                document.getElementById('editHeroTitle').value = title;
+                document.getElementById('editHeroSubtitle').value = subtitle;
+                document.getElementById('editHeroDescription').value = description;
+                document.getElementById('editHeroOverlay').classList.add('active');
+            }
+
+            function closeEditHeroOverlay() {
+                document.getElementById('editHeroOverlay').classList.remove('active');
+            }
+
             function openCategoryOverlay() {
                 closeAllOverlays();
                 document.getElementById('categoryOverlay').classList.add('active');
@@ -727,6 +993,15 @@
                 document.getElementById('editItemOverlay').classList.remove('active');
             }
 
+            function openEditCtaOverlay() {
+                closeAllOverlays();
+                document.getElementById('editCtaOverlay').classList.add('active');
+            }
+
+            function closeEditCtaOverlay() {
+                document.getElementById('editCtaOverlay').classList.remove('active');
+            }
+
             function closeAllOverlays() {
                 document.querySelectorAll('.overlay').forEach(overlay => {
                     overlay.classList.remove('active');
@@ -734,6 +1009,8 @@
             }
 
             document.querySelector('.add-category-btn').addEventListener('click', openCategoryOverlay);
+            document.querySelector('.edit-cta-btn')?.addEventListener('click', openEditCtaOverlay);
+            document.querySelector('.edit-hero-btn')?.addEventListener('click', openEditHeroOverlay);
         </script>
     @endpush
 @endsection

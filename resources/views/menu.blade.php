@@ -13,10 +13,10 @@
     @include('layouts.header')
     <section class="menu-hero">
         <div class="hero-content">
-            <h1>Our Menu</h1>
-            <h1><span>Savor the Essence</span></h1>
+            <h1>{{ $heroTitle }}</h1>
+            <h1><span>{{ $heroSubtitle }}</span></h1>
             <p id="dynamic-date">
-                Explore our fresh offerings available today, Sunday.
+                {{ $heroDescription }}
             </p>
         </div>
     </section>
@@ -48,15 +48,11 @@
 
 
     <section class="cta-section">
-        <h2>Visit Bagan Chiya Cafe</h2>
-        <p>Experience our delicious offerings and join our community of tea lovers. Subscribe to our newsletter for
-            exclusive offers and updates!</p>
-
-        <a href="https://www.facebook.com/p/Bagan-%E0%A4%9A%E0%A4%BF%E0%A4%AF%E0%A4%BE-Cafe-61564573427193/?_rdr"
-            target="_blank" class="cta-button">
-            Join Our Community
+        <h2>{{ $ctaTitle }}</h2>
+        <p>{{ $ctaText }}</p>
+        <a href="{{ $ctaLink }}" target="_blank" class="cta-button">
+            {{ $ctaButton }}
         </a>
-
     </section>
     @include('layouts.footer')
 

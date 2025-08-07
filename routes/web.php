@@ -44,4 +44,6 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::put('/menu/items/{item}', [AdminMenuController::class, 'updateItem'])->name('admin.menu.items.update');
     Route::delete('/menu/items/{item}', [AdminMenuController::class, 'destroyItem'])->name('admin.menu.items.destroy');
     Route::post('/menu/title', [AdminMenuController::class, 'updateMenuTitle'])->name('admin.menu.title.update');
+    Route::post('/admin/menu/cta', [AdminMenuController::class, 'updateCta'])->name('admin.menu.cta.update');
+    Route::post('/admin/menu/hero', [AdminMenuController::class, 'updateHero'])->name('admin.menu.hero.update');
 });
