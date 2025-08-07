@@ -2,24 +2,21 @@
 @section('content')
     <section class="about-hero">
         <div class="hero-content">
-            <h1>{{ $about->title ?? 'About Us' }}</h1>
-            <h1><span>{{ $about->subtitle ?? 'Our Story' }}</span></h1>
+            <h1>{{ $about->title ?? '' }}</h1>
+            <h1><span>{{ $about->subtitle ?? '' }}</span></h1>
             <p id="dynamic-date">
-                {{ $about->description ?? 'Discover the heart of Bagan Chiya Cafe, where tradition meets taste in every cup and bite.' }}
+                {{ $about->description ?? '' }}
             </p>
-
             <div class="actions">
                 <button class="edit-hero-btn"
-                    onclick="openEditHeroOverlay('{{ $about->title ?? 'About Us' }}', '{{ $about->subtitle ?? 'Our Story' }}', '{{ $about->description ?? 'Discover the heart of Bagan Chiya Cafe, where tradition meets taste in every cup and bite.' }}')">
+                    onclick="openEditHeroOverlay('{{ $about->title ?? '' }}', '{{ $about->subtitle ?? '' }}', '{{ $about->description ?? 'Discover the heart of Bagan Chiya Cafe, where tradition meets taste in every cup and bite.' }}')">
                     <i class="fas fa-edit"></i> Edit Hero
                 </button>
             </div>
-
         </div>
     </section>
 
     <!-- Overlay for Edit Hero Section -->
-
     <div class="overlay" id="editHeroOverlay">
         <div class="overlay-content">
             <button class="close-btn" onclick="closeEditHeroOverlay()"><i class="fas fa-times"></i></button>
@@ -29,17 +26,17 @@
                     @csrf
                     <div class="form-group">
                         <label>Title</label>
-                        <input id="editHeroTitle" name="hero_title" type="text" value="{{ $about->title ?? 'About Us' }}"
+                        <input id="editHeroTitle" name="hero_title" type="text" value="{{ $about->title ?? '' }}"
                             required />
                     </div>
                     <div class="form-group">
                         <label>Subtitle</label>
                         <input id="editHeroSubtitle" name="hero_subtitle" type="text"
-                            value="{{ $about->subtitle ?? 'Our Story' }}" required />
+                            value="{{ $about->subtitle ?? '' }}" required />
                     </div>
                     <div class="form-group">
                         <label>Description</label>
-                        <textarea id="editHeroDescription" name="hero_description" required>{{ $about->description ?? 'Discover the heart of Bagan Chiya Cafe, where tradition meets taste in every cup and bite.' }}</textarea>
+                        <textarea id="editHeroDescription" name="hero_description" required>{{ $about->description ?? '' }}</textarea>
                     </div>
                     <button type="submit"><i class="fas fa-save"></i> Save Hero</button>
                 </form>
@@ -47,11 +44,147 @@
         </div>
     </div>
 
+    <section class="about-section">
+        <h2>{{ $about->about_title ?? '' }}</h2>
+        <div class="about-content">
+            <p>{{ $about->paragraph1 ?? '' }}
+            </p>
+            <p>{{ $about->paragraph2 ?? '' }}
+            </p>
+            <div class="actions">
+                <button class="edit-about-btn"
+                    onclick="openEditAboutOverlay('{{ $about->about_title ?? '' }}', '{{ $about->paragraph1 ?? '' }}')">
+                    <i class="fas fa-edit"></i> Edit About
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overlay for Edit About Section -->
+    <div class="overlay" id="editAboutOverlay">
+        <div class="overlay-content">
+            <button class="close-btn" onclick="closeEditAboutOverlay()"><i class="fas fa-times"></i></button>
+            <div class="form-section">
+                <h2>Edit About Section</h2>
+                <form id="editAboutForm" method="POST" action="{{ route('admin.visitus.about.update') }}">
+                    @csrf
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input id="editAboutTitle" name="about_title" type="text"
+                            value="{{ $about->about_title ?? '' }}" required />
+                    </div>
+                    <div class="form-group">
+                        <label>Paragraph 1</label>
+                        <textarea id="editAboutParagraph1" name="paragraph1" required>{{ $about->paragraph1 ?? '' }}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Paragraph 2</label>
+                        <textarea id="editAboutParagraph2" name="paragraph2" required>{{ $about->paragraph2 ?? '' }}</textarea>
+                    </div>
+                    <button type="submit"><i class="fas fa-save"></i> Save About</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="visit-hours-section">
+        <div class="map-title">
+            <h2>{{ $about->map_title ?? 'Find Us' }}</h2>
+            <div class="actions">
+                <button class="edit-visit-btn"
+                    onclick="openEditVisitOverlay('{{ $about->map_title ?? '' }}', '{{ $about->visit_title ?? '' }}', '{{ $about->location ?? '' }}', '{{ $about->phone ?? '' }}', '{{ $about->secondary_location ?? '' }}', '{{ $about->hours ?? '' }}', '{{ $about->map_url ?? '' }}', '{{ $about->directions_url ?? '' }}')">
+                    <i class="fas fa-edit"></i> Edit Visit Info
+                </button>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <div class="header">
+                <h1 class="title">{{ $about->visit_title ?? '' }}</h1>
+                <div class="location">
+                    <i class="fas fa-map-marker-alt location-icon"></i>
+                    {{ $about->location ?? '' }}
+                </div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone contact-icon"></i>
+                        <a href="tel:+{{ $about->phone ?? '' }}"
+                            style="color: #d1e8d4; text-decoration: none;">{{ $about->phone ?? '' }}</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-location contact-icon"></i>
+                        {{ $about->secondary_location ?? '' }}
+                    </div>
+                </div>
+                <a href="{{ $about->directions_url ?? '' }}" target="_blank" class="directions-btn">
+                    Get Directions
+                </a>
+            </div>
+            <div class="hours-list">
+                <p>{{ $about->hours ?? '' }}</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay for Edit Visit Section -->
+    <div class="overlay" id="editVisitOverlay">
+        <div class="overlay-content">
+            <button class="close-btn" onclick="closeEditVisitOverlay()"><i class="fas fa-times"></i></button>
+            <div class="form-section">
+                <h2>Edit Visit Info</h2>
+                <form id="editVisitForm" method="POST" action="{{ route('admin.visitus.visit.update') }}">
+                    @csrf
+                    <div class="form-group">
+                        <label>Map Title</label>
+                        <input id="editVisitMapTitle" name="map_title" type="text" value="{{ $about->map_title ?? '' }}"
+                            required />
+                    </div>
+                    <div class="form-group">
+                        <label>Visit & Hours Title</label>
+                        <input id="editVisitTitle" name="visit_title" type="text"
+                            value="{{ $about->visit_title ?? '' }}" required />
+                    </div>
+                    <div class="form-group">
+                        <label>Location</label>
+                        <input id="editVisitLocation" name="location" type="text"
+                            value="{{ $about->location ?? '' }}" required />
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input id="editVisitPhone" name="phone" type="text" value="{{ $about->phone ?? '' }}"
+                            required />
+                    </div>
+                    <div class="form-group">
+                        <label>Secondary Location</label>
+                        <input id="editVisitSecondaryLocation" name="secondary_location" type="text"
+                            value="{{ $about->secondary_location ?? '' }}" required />
+                    </div>
+                    <div class="form-group">
+                        <label>Hours</label>
+                        <textarea id="editVisitHours" name="hours" required>{{ $about->hours ?? '' }}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Google Maps Embed URL (Optional)</label>
+                        <input id="editVisitMapUrl" name="map_url" type="text" value="{{ $about->map_url ?? '' }}"
+                            placeholder="Enter Google Maps embed URL" />
+                    </div>
+                    <div class="form-group">
+                        <label>Get Directions URL</label>
+                        <input id="editVisitDirectionsUrl" name="directions_url" type="text"
+                            value="{{ $about->directions_url ?? '' }}" required />
+                    </div>
+                    <button type="submit"><i class="fas fa-save"></i> Save Visit Info</button>
+                </form>
+            </div>
+        </div>
+    </div>
 
     @push('styles')
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
         <style>
-            .about-hero {
+            .about-hero,
+            .about-section,
+            .visit-hours-section {
                 padding: 16px;
                 background: #ffffff;
                 border-radius: 10px;
@@ -59,11 +192,17 @@
                 border-left: 3px solid #2a8b4e;
             }
 
-            .hero-content {
+            .hero-content,
+            .about-content,
+            .map-title,
+            .info-section {
                 text-align: center;
             }
 
-            .hero-content h1 {
+            .hero-content h1,
+            .about-section h2,
+            .map-title h2,
+            .info-section .title {
                 font-size: 1.5em;
                 color: #1a3c34;
             }
@@ -72,19 +211,28 @@
                 color: #2a8b4e;
             }
 
-            .hero-content p {
+            .hero-content p,
+            .about-content p,
+            .info-section p,
+            .map-title p,
+            .contact-info,
+            .location {
                 font-size: 0.9em;
                 color: #4a5568;
                 margin: 8px 0;
             }
 
-            .hero-content .actions {
+            .hero-content .actions,
+            .about-content .actions,
+            .map-title .actions {
                 display: flex;
                 justify-content: center;
                 margin-top: 8px;
             }
 
-            .edit-hero-btn {
+            .edit-hero-btn,
+            .edit-about-btn,
+            .edit-visit-btn {
                 background: linear-gradient(135deg, #2a8b4e 0%, #1a5630 100%);
                 color: #ffffff;
                 font-weight: 500;
@@ -99,13 +247,84 @@
                 transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
             }
 
-            .edit-hero-btn:hover {
+            .edit-hero-btn:hover,
+            .edit-about-btn:hover,
+            .edit-visit-btn:hover {
                 background: linear-gradient(135deg, #3da65f 0%, #2a8b4e 100%);
                 transform: scale(1.01);
                 box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
             }
 
-            .edit-hero-btn:active {
+            .edit-hero-btn:active,
+            .edit-about-btn:active,
+            .edit-visit-btn:active {
+                transform: scale(1);
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            .map-section {
+                margin: 16px 0;
+            }
+
+            .map-container {
+                position: relative;
+                width: 100%;
+                height: 300px;
+            }
+
+            .map-container iframe {
+                width: 100%;
+                height: 100%;
+                border: 0;
+            }
+
+            .map-overlay {
+                position: absolute;
+                bottom: 10px;
+                right: 10px;
+                background: rgba(0, 0, 0, 0.5);
+                color: #ffffff;
+                font-size: 0.8em;
+                padding: 4px 8px;
+                border-radius: 4px;
+            }
+
+            .info-section .header {
+                margin-bottom: 16px;
+            }
+
+            .contact-info .contact-item {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                margin: 8px 0;
+            }
+
+            .location-icon,
+            .contact-icon {
+                color: #2a8b4e;
+            }
+
+            .directions-btn {
+                display: inline-block;
+                background: linear-gradient(135deg, #2a8b4e 0%, #1a5630 100%);
+                color: #ffffff;
+                font-weight: 500;
+                font-size: 0.85em;
+                padding: 8px 16px;
+                border-radius: 16px;
+                text-decoration: none;
+                margin: 8px 0;
+                transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            }
+
+            .directions-btn:hover {
+                background: linear-gradient(135deg, #3da65f 0%, #2a8b4e 100%);
+                transform: scale(1.01);
+                box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            .directions-btn:active {
                 transform: scale(1);
                 box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
             }
@@ -264,7 +483,7 @@
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 const dateElement = document.getElementById('dynamic-date');
-                const today = new Date('2025-08-07T11:57:00+05:45');
+                const today = new Date('2025-08-07T12:43:00+05:45');
                 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
                 const dayName = days[today.getDay()];
                 dateElement.textContent = `${dateElement.textContent} Available today, ${dayName}.`;
@@ -280,6 +499,36 @@
 
             function closeEditHeroOverlay() {
                 document.getElementById('editHeroOverlay').classList.remove('active');
+            }
+
+            function openEditAboutOverlay(title, paragraph1, paragraph2) {
+                closeAllOverlays();
+                document.getElementById('editAboutTitle').value = title;
+                document.getElementById('editAboutParagraph1').value = paragraph1;
+                document.getElementById('editAboutParagraph2').value = paragraph2;
+                document.getElementById('editAboutOverlay').classList.add('active');
+            }
+
+            function closeEditAboutOverlay() {
+                document.getElementById('editAboutOverlay').classList.remove('active');
+            }
+
+            function openEditVisitOverlay(mapTitle, visitTitle, location, phone, secondaryLocation, hours, mapUrl,
+                directionsUrl) {
+                closeAllOverlays();
+                document.getElementById('editVisitMapTitle').value = mapTitle;
+                document.getElementById('editVisitTitle').value = visitTitle;
+                document.getElementById('editVisitLocation').value = location;
+                document.getElementById('editVisitPhone').value = phone;
+                document.getElementById('editVisitSecondaryLocation').value = secondaryLocation;
+                document.getElementById('editVisitHours').value = hours;
+                document.getElementById('editVisitMapUrl').value = mapUrl;
+                document.getElementById('editVisitDirectionsUrl').value = directionsUrl;
+                document.getElementById('editVisitOverlay').classList.add('active');
+            }
+
+            function closeEditVisitOverlay() {
+                document.getElementById('editVisitOverlay').classList.remove('active');
             }
 
             function closeAllOverlays() {

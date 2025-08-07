@@ -54,4 +54,8 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::post('/admin/about', [AdminAboutController::class, 'store'])->name('admin.about.store');
 
     Route::post('/admin/about/hero', [AdminAboutController::class, 'updateHero'])->name('admin.visitus.hero.update');
+
+    Route::post('/admin/about/section', [AdminAboutController::class, 'updateAbout'])->name('admin.visitus.about.update');
+
+    Route::post('/admin/about/visit', [AdminAboutController::class, 'updateVisit'])->name('admin.visitus.visit.update');
 });
