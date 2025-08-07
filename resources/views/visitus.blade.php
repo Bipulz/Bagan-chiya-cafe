@@ -14,10 +14,9 @@
     @include('layouts.header')
     <section class="about-hero">
         <div class="hero-content">
-            <h1>About Us</h1>
-            <h1><span>Our Story</span></h1>
-            <p>
-                Discover the heart of Bagan Chiya Cafe, where tradition meets taste in every cup and bite.
+            <h1>{{ $about->title ?? 'About Us' }}</h1>
+            <h1><span>{{ $about->subtitle ?? 'Our Story' }}</span></h1>
+            <p>{{ $about->description ?? 'Discover the heart of Bagan Chiya Cafe, where tradition meets taste in every cup and bite.' }}
             </p>
         </div>
     </section>

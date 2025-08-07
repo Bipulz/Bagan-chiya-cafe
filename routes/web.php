@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\Admin\AboutController as AdminAboutController;
 use App\Http\Controllers\Admin\MenuController as AdminMenuController;
 
 Route::get('/', function () {
@@ -19,9 +21,9 @@ Route::get('/gallery', function () {
     return view('gallery');
 })->name('gallery');
 
-Route::get('/visitus', function () {
-    return view('visitus');
-})->name('visitus');
+// Route::get('/visitus', function () {
+//     return view('visitus');
+// })->name('visitus');
 
 Route::get('/order', function () {
     return view('order');
@@ -29,6 +31,8 @@ Route::get('/order', function () {
 
 Route::get('/login', [AdminAuthController::class, 'showLoginForm'])->name('admin.login');
 Route::post('/login', [AdminAuthController::class, 'login']);
+
+Route::get('/visitus', [AboutController::class, 'index'])->name('visitus');
 
 
 Route::prefix('admin')->middleware('auth')->group(function () {
@@ -46,4 +50,8 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::post('/menu/title', [AdminMenuController::class, 'updateMenuTitle'])->name('admin.menu.title.update');
     Route::post('/admin/menu/cta', [AdminMenuController::class, 'updateCta'])->name('admin.menu.cta.update');
     Route::post('/admin/menu/hero', [AdminMenuController::class, 'updateHero'])->name('admin.menu.hero.update');
+    Route::get('/admin/about', [AdminAboutController::class, 'index'])->name('admin.about.index');
+    Route::post('/admin/about', [AdminAboutController::class, 'store'])->name('admin.about.store');
+
+    Route::post('/admin/about/hero', [AdminAboutController::class, 'updateHero'])->name('admin.visitus.hero.update');
 });
