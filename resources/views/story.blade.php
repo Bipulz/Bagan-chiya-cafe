@@ -13,73 +13,44 @@
 
 <body>
     @include('layouts.header')
-    <section class="story-hero">
-        <div class="hero-content">
-            <div class="badge">
-                <i class="fas fa-leaf badge-icon"></i>
-                <span>Since Mangsir • Born in Damak</span>
-            </div>
-            <h1>Our Story<span>Bagan Chiya Cafe</span></h1>
-            <p class="description">
-                From the heart of Damak to your cup - discover the passionate journey of Bagan Chiya Cafe, where
-                authentic Nepali tea culture meets modern innovation and community spirit.
-            </p>
+  
+<section class="story-hero">
+    <div class="hero-content">
+        <div class="badge">
+            <i class="fas fa-leaf badge-icon"></i>
+            <span>{{ $story->hero_badge ?? '' }}</span>
         </div>
-    </section>
+        <h1>{{ $story->hero_title ?? '' }}<span>Bagan Chiya Cafe</span></h1>
+        <p class="description">
+            {{ $story->hero_description ?? '' }}
+        </p>
+    </div>
+</section>
 
-    <section class="story-content">
-        <div class="story-container">
-            <div class="journey-section">
-                <h2 class="section-title">The Journey Begins</h2>
-                <p class="journey-intro">
-                    Every great story has humble beginnings. Ours started in the vibrant town of Damak, where the aroma
-                    of fresh tea leaves and the warmth of community spirit inspired us to create something
-                    extraordinary.
-                </p>
-            </div>
+    <section class="story-content"> 
+       <div class="story-container">
+    <div class="journey-section">
+        <h2 class="section-title">{{ $story->journey_title ?? '' }}</h2>
+        <p class="journey-intro">
+            {{ $story->journey_intro ?? '' }}
+        </p>
+    </div>
 
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="year">2022</div>
-                    <div class="location">Born in Damak</div>
-                    <p class="description">
-                        In the heart of Damak, Jhapa, Bagan Chiya Cafe opened its doors. Founded by passionate tea
-                        enthusiasts who recognized the incredible potential of Nepal's eastern tea heritage, our cafe
-                        became a beacon of authentic Nepali tea culture.
-                    </p>
-                    <a href="#" class="visit">Visit</a>
-                </div>
-                <div class="timeline-item">
-                    <div class="year">2023</div>
-                    <div class="location">Mastering Our Craft</div>
-                    <p class="description">
-                        Each tea blend is meticulously handcrafted using leaves sourced directly from the pristine tea
-                        gardens of Ilam, Dhankuta, and Panchthar. Our master tea blenders honor centuries-old
-                        techniques, ensuring every cup carries the authentic essence of Nepal's mountainous terroir.
-                    </p>
-                    <a href="#" class="visit">Visit</a>
-                </div>
-                <div class="timeline-item">
-                    <div class="year">2024</div>
-                    <div class="location">Growing Community</div>
-                    <p class="description">
-                        From our roots in Damak, we've cultivated strong partnerships with over 50 local tea farmers
-                        across Eastern Nepal. Our commitment to fair trade practices and sustainable farming has created
-                        a network of growers who share our passion for quality.
-                    </p>
-                    <a href="#" class="visit">Visit</a>
-                </div>
-                <div class="timeline-item">
-                    <div class="year">2025</div>
-                    <div class="location">A Cultural Hub</div>
-                    <p class="description">
-                        Today, Bagan Chiya Cafe stands as more than just a tea house - it's a cultural sanctuary in
-                        Damak where stories flow as freely as our tea. Here, diverse communities gather to celebrate
-                        traditions over steaming cups.
-                    </p>
-                    <a href="#" class="visit">Visit</a>
-                </div>
-            </div>
+   <div class="timeline">
+    @foreach($timelineItems as $item)
+   <div class="timeline-item" ...>
+    <div class="year">{{ $item->year }}</div>
+    
+<div class="title">{{ $item->location }}</div>
+    <p class="description">{{ $item->description }}</p>
+    @if($item->link)
+        <a href="{{ $item->link }}" class="visit">Visit</a>
+    @endif
+    
+</div>
+    @endforeach
+</div>
+</div>
 
             <div class="gallery-section">
                 <h2 class="section-title">Our Tea Heritage</h2>
@@ -127,104 +98,68 @@
                 </div>
             </div>
 
-            <div class="mission-section">
-                <div class="mission-content">
-                    <h2>Our Mission</h2>
-                    <p>
-                        We are dedicated to preserving Nepal's tea heritage while building sustainable futures for our
-                        farming communities. Through every cup, we connect tea lovers worldwide to the authentic flavors
-                        of the Himalayas.
-                    </p>
-                </div>
-            </div>
+        <div class="mission-section">
+    <div class="mission-content">
+        <h2>{{ $story->mission_title ?? 'Our Mission' }}</h2>
+        <p>
+            {{ $story->mission_text ?? "We are dedicated to preserving Nepal's tea heritage while building sustainable futures for our farming communities. Through every cup, we connect tea lovers worldwide to the authentic flavors of the Himalayas." }}
+        </p>
+    </div>
+</div>
 
-            <div class="values-section">
-                <h2 class="section-title">Our Values</h2>
-                <div class="values-grid">
-                    <div class="value-card">
-                        <div class="value-icon">
-                            <i class="fas fa-leaf"></i>
-                        </div>
-                        <h3>Sustainability</h3>
-                        <p>
-                            We practice environmentally conscious farming and processing methods that protect Nepal's
-                            pristine landscapes for future generations.
-                        </p>
-                    </div>
-                    <div class="value-card">
-                        <div class="value-icon">
-                            <i class="fas fa-handshake"></i>
-                        </div>
-                        <h3>Fair Partnership</h3>
-                        <p>
-                            Our direct relationships with local farmers ensure fair compensation and sustainable
-                            livelihoods, creating a network of prosperity.
-                        </p>
-                    </div>
-                    <div class="value-card">
-                        <div class="value-icon">
-                            <i class="fas fa-award"></i>
-                        </div>
-                        <h3>Authentic Quality</h3>
-                        <p>
-                            Every blend reflects our unwavering commitment to excellence, combining traditional methods
-                            with rigorous quality standards.
-                        </p>
-                    </div>
+<div class="values-section">
+    <h2 class="section-title">{{ $story->values_title ?? 'Our Values' }}</h2>
+    <div class="values-grid">
+        @foreach($values as $value)
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas {{ $value->icon }}"></i>
                 </div>
+                <h3>{{ $value->title }}</h3>
+                <p>{{ $value->description }}</p>
             </div>
-
-            <div class="team-section">
-                <h2 class="section-title">Meet Our Team</h2>
-                <p class="journey-intro">
-                    The passionate individuals behind every perfect cup, dedicated to sharing Nepal's tea culture with
-                    the world.
-                </p>
-                <div class="team-grid">
-                    <div class="team-card">
-                        <div class="team-avatar">
-                            <i class="fas fa-user-tie"></i>
-                        </div>
-                        <h3>Tea Master</h3>
-                        <p>With over 20 years of experience in tea cultivation and blending, our tea master ensures
-                            every batch meets the highest standards.</p>
+        @endforeach
+    </div>
+</div>
+            
+        <div class="team-section">
+    <h2 class="section-title">{{ $story->team_title ?? 'Meet Our Team' }}</h2>
+    <p class="journey-intro">
+        {{ $story->team_intro ?? "The passionate individuals behind every perfect cup, dedicated to sharing Nepal's tea culture with the world." }}
+    </p>
+    <div class="team-grid">
+        @if(isset($teamMembers) && count($teamMembers) > 0)
+            @foreach($teamMembers as $member)
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <i class="fas {{ $member->icon }}"></i>
                     </div>
-                    <div class="team-card">
-                        <div class="team-avatar">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <h3>Community Relations</h3>
-                        <p>Building bridges between our cafe and local farming communities, fostering relationships that
-                            benefit everyone.</p>
-                    </div>
-                    <div class="team-card">
-                        <div class="team-avatar">
-                            <i class="fas fa-coffee"></i>
-                        </div>
-                        <h3>Cafe Experience</h3>
-                        <p>Creating memorable experiences for every guest who walks through our doors, sharing the
-                            stories behind each cup.</p>
-                    </div>
+                    <h3>{{ $member->title }}</h3>
+                    <p>{{ $member->description }}</p>
                 </div>
-            </div>
+            @endforeach
+        @else
+            <p class="no-items">No team members found. Add a new team member to get started.</p>
+        @endif
+    </div>
+</div>
 
-            <div class="cta-section">
-                <h2 class="section-title">Visit Us in Damak</h2>
-                <p class="journey-intro">
-                    Experience the authentic taste of Nepal's finest teas in the heart of where our story began.
-                </p>
-                <a href="{{ asset('') }}" class="btn-enhanced">
-                    <i class="fas fa-home"></i>
-                    <span>Back to Home</span>
-                </a>
-            </div>
-        </div>
+<div class="cta-section">
+    <h2 class="section-title">{{ $story->cta_title ?? 'Visit Us in Damak' }}</h2>
+    <p class="journey-intro">
+        {{ $story->cta_description ?? "Experience the authentic taste of Nepal's finest teas in the heart of where our story began." }}
+    </p>
+    <a href="{{ $story->cta_link ?? asset('') }}" class="btn-enhanced">
+        <i class="fas fa-home"></i>
+        <span>{{ $story->cta_button_text ?? 'Back to Home' }}</span>
+    </a>
+</div>
 
     </section>
     @include('layouts.footer')
 
     <script>
-        // Re-enable IntersectionObserver for timeline reveal
+        
         const observerOptions = {
             threshold: 0.2,
             rootMargin: '0px 0px -50px 0px'

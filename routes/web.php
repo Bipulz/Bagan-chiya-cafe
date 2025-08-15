@@ -1,11 +1,12 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\Admin\AboutController as AdminAboutController;
 use App\Http\Controllers\Admin\MenuController as AdminMenuController;
+use App\Http\Controllers\Admin\StoryController as AdminStoryController;
+use App\Http\Controllers\StoryController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -21,10 +22,6 @@ Route::get('/gallery', function () {
     return view('gallery');
 })->name('gallery');
 
-// Route::get('/visitus', function () {
-//     return view('visitus');
-// })->name('visitus');
-
 Route::get('/order', function () {
     return view('order');
 })->name('order');
@@ -33,6 +30,7 @@ Route::get('/login', [AdminAuthController::class, 'showLoginForm'])->name('admin
 Route::post('/login', [AdminAuthController::class, 'login']);
 
 Route::get('/visitus', [AboutController::class, 'index'])->name('visitus');
+Route::get('/story', [StoryController::class, 'show'])->name('story');
 
 
 Route::prefix('admin')->middleware('auth')->group(function () {
@@ -58,4 +56,24 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::post('/admin/about/section', [AdminAboutController::class, 'updateAbout'])->name('admin.visitus.about.update');
 
     Route::post('/admin/about/visit', [AdminAboutController::class, 'updateVisit'])->name('admin.visitus.visit.update');
+     Route::get('/story', [AdminStoryController::class, 'index'])->name('admin.story.index');
+    Route::get('/story/edit', [AdminStoryController::class, 'edit'])->name('admin.story.edit');
+    Route::post('/story/update', [AdminStoryController::class, 'update'])->name('admin.story.update');
+    Route::post('/story/hero/update', [AdminStoryController::class, 'updateHero'])->name('admin.story.hero.update');
+    Route::post('/story/journey/update', [App\Http\Controllers\Admin\StoryController::class, 'updateJourney'])->name('admin.story.journey.update');
+    Route::post('/story/timeline/store', [App\Http\Controllers\Admin\StoryController::class, 'storeTimeline'])->name('admin.story.timeline.store');
+    Route::delete('/story/timeline/{timeline}', [App\Http\Controllers\Admin\StoryController::class, 'destroyTimeline'])->name('admin.story.timeline.destroy');
+    Route::put('/story/timeline/{timeline}', [App\Http\Controllers\Admin\StoryController::class, 'updateTimeline'])->name('admin.story.timeline.update');
+    Route::post('/admin/story/mission/update', [\App\Http\Controllers\Admin\StoryController::class, 'updateMission'])->name('admin.story.mission.update');
+    Route::post('/story/values/title/update', [\App\Http\Controllers\Admin\StoryController::class, 'updateValuesTitle'])->name('admin.story.values.title.update');
+    Route::post('/story/values/store', [\App\Http\Controllers\Admin\StoryController::class, 'storeValue'])->name('admin.story.values.store');
+    Route::delete('/story/values/{value}', [\App\Http\Controllers\Admin\StoryController::class, 'destroyValue'])->name('admin.story.values.destroy');
+    Route::put('/story/values/{value}', [\App\Http\Controllers\Admin\StoryController::class, 'updateValue'])->name('admin.story.values.update');
+    Route::post('/admin/story/team/title/update', [\App\Http\Controllers\Admin\StoryController::class, 'updateTeamTitle'])->name('admin.story.team.title.update');
+    Route::post('/story/team/store', [\App\Http\Controllers\Admin\StoryController::class, 'storeTeam'])->name('admin.story.team.store');
+    Route::post('/admin/story/cta/update', [\App\Http\Controllers\Admin\StoryController::class, 'updateCta'])->name('admin.story.cta.update');
+    Route::post('/story/team/store', [\App\Http\Controllers\Admin\StoryController::class, 'storeTeam'])->name('admin.story.team.store');
+    Route::put('/story/team/{teamMember}', [\App\Http\Controllers\Admin\StoryController::class, 'updateTeam'])->name('admin.story.team.update');
+Route::delete('/story/team/{teamMember}', [\App\Http\Controllers\Admin\StoryController::class, 'destroyTeam'])->name('admin.story.team.destroy');
+    
 });
