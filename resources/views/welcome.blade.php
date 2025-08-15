@@ -12,6 +12,7 @@
     </head>
 
     <body>
+        
         @include('layouts.header')
         @include('layouts.hero')
         @include('layouts.home')

@@ -158,6 +158,7 @@
     background: linear-gradient(135deg, #2f7b3e, #1a4a2b);
     color: white;
     box-shadow: 0 4px 12px rgba(47, 123, 62, 0.2);
+    text-decoration: none;
 }
 
 .btn.primary:hover {
@@ -170,6 +171,7 @@
     border: 1px solid rgba(47, 123, 62, 0.4);
     color: #2f7b3e;
     box-shadow: 0 4px 12px rgba(47, 123, 62, 0.1);
+    text-decoration: none;
 }
 
 .btn.secondary:hover {

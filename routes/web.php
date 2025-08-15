@@ -7,10 +7,10 @@ use App\Http\Controllers\Admin\AboutController as AdminAboutController;
 use App\Http\Controllers\Admin\MenuController as AdminMenuController;
 use App\Http\Controllers\Admin\StoryController as AdminStoryController;
 use App\Http\Controllers\StoryController;
+use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
+use App\Http\Controllers\DashboardController;
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::get('/', [DashboardController::class, 'index'])->name('home');
 
 Route::get('/story', function () {
     return view('story');
@@ -34,7 +34,7 @@ Route::get('/story', [StoryController::class, 'show'])->name('story');
 
 
 Route::prefix('admin')->middleware('auth')->group(function () {
-    Route::view('/dashboard', 'admin.dashboard.index')->name('admin.dashboard.index');
+
     Route::get('/menu', [AdminMenuController::class, 'index'])->name('admin.menu.index');
     Route::view('/story', 'admin.story.index')->name('admin.story.index');
     Route::view('/gallery', 'admin.gallery.index')->name('admin.gallery.index');
@@ -75,5 +75,8 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::post('/story/team/store', [\App\Http\Controllers\Admin\StoryController::class, 'storeTeam'])->name('admin.story.team.store');
     Route::put('/story/team/{teamMember}', [\App\Http\Controllers\Admin\StoryController::class, 'updateTeam'])->name('admin.story.team.update');
 Route::delete('/story/team/{teamMember}', [\App\Http\Controllers\Admin\StoryController::class, 'destroyTeam'])->name('admin.story.team.destroy');
+Route::get('/dashboard', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dashboard.index');
+
+Route::post('/hero/update', [\App\Http\Controllers\Admin\DashboardController::class, 'updateHero'])->name('admin.hero.update');
     
 });
