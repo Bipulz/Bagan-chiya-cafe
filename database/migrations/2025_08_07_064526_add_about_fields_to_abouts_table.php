@@ -7,14 +7,21 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
 
-    public function up()
-    {
-        Schema::table('abouts', function (Blueprint $table) {
+
+public function up()
+{
+    Schema::table('abouts', function (Blueprint $table) {
+        if (!Schema::hasColumn('abouts', 'about_title')) {
             $table->string('about_title')->nullable();
+        }
+        if (!Schema::hasColumn('abouts', 'paragraph1')) {
             $table->text('paragraph1')->nullable();
+        }
+        if (!Schema::hasColumn('abouts', 'paragraph2')) {
             $table->text('paragraph2')->nullable();
-        });
-    }
+        }
+    });
+}
 
     public function down()
     {
