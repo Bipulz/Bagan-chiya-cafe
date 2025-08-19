@@ -126,6 +126,7 @@
              </div>
          </div>
      </section>
+
      <section class="owner-words-section section">
          <div class="section-container">
              <h2 class="section-title">Words From Our Founder</h2>
@@ -143,103 +144,106 @@
              </div>
          </div>
      </section>
-     <section class="why-us-section section">
-         <div class="section-container">
-             <h2 class="section-title">Why Choose Us</h2>
-             <div class="why-us-cards">
-                 <div class="why-us-card">
-                     <i class="fas fa-leaf"></i>
-                     <h3>Organic Ingredients</h3>
-                     <p>We use only the finest organic teas and herbs sourced locally.</p>
-                 </div>
-                 <div class="why-us-card">
-                     <i class="fas fa-smile"></i>
-                     <h3>Friendly Service</h3>
-                     <p>Our staff ensures a warm and welcoming experience every time.</p>
-                 </div>
-                 <div class="why-us-card">
-                     <i class="fas fa-heart"></i>
-                     <h3>Authentic Taste</h3>
-                     <p>Experience the true essence of Nepali tea culture.</p>
-                 </div>
-             </div>
-         </div>
-     </section>
+<section class="why-us-section section">
+    <div class="section-container">
+        <h2 class="section-title">{{ $whyUsHeading ?? 'Why Choose Us' }}</h2>
+        <div class="why-us-cards">
+            @if(isset($whyUsCards) && count($whyUsCards) > 0)
+                @foreach($whyUsCards as $card)
+                    <div class="why-us-card">
+                        <i class="fas {{ $card->icon }}"></i>
+                        <h3>{{ $card->title }}</h3>
+                        <p>{{ $card->description }}</p>
+                    </div>
+                @endforeach
+            @else
+                <div class="why-us-card">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Organic Ingredients</h3>
+                    <p>We use only the finest organic teas and herbs sourced locally.</p>
+                </div>
+                <div class="why-us-card">
+                    <i class="fas fa-smile"></i>
+                    <h3>Friendly Service</h3>
+                    <p>Our staff ensures a warm and welcoming experience every time.</p>
+                </div>
+                <div class="why-us-card">
+                    <i class="fas fa-heart"></i>
+                    <h3>Authentic Taste</h3>
+                    <p>Experience the true essence of Nepali tea culture.</p>
+                </div>
+            @endif
+        </div>
+    </div>
+</section>
 
-     <section class="testimonials-section section">
-         <div class="section-container">
-             <h2 class="section-title">What Our Customers Say</h2>
-             <div class="testimonial-cards">
-                 <div class="testimonial-card">
-                     <p class="testimonial-text">"Great place to hang out!! Matka tea and banana chips were so
-                         delicious!"
-                     </p>
-                     <div class="rating">
-                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                             class="fas fa-star"></i><i class="fas fa-star"></i>
-                     </div>
-                     <p class="testimonial-author">- Kalpana Panday</p>
-                 </div>
-                 <div class="testimonial-card">
-                     <p class="testimonial-text">"Great place for tea lovers!! Especially, Bagan special tea!"</p>
-                     <div class="rating">
-                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                             class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                     </div>
-                     <p class="testimonial-author">- Jibit Khanal</p>
-                 </div>
-                 <div class="testimonial-card">
-                     <p class="testimonial-text">"Best and affordable Cafe"</p>
-                     <div class="rating">
-                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                             class="fas fa-star"></i><i class="fas fa-star"></i>
-                     </div>
-                     <p class="testimonial-author">-
-                         Sudin Bikram Thapa</p>
-                 </div>
-                 <div class="testimonial-card">
-                     <p class="testimonial-text">"Atmosphere was amazing!! Will recommend!<br>
-                         Food: 5<br>
-                         Service: 5<br>
-                         Atmosphere: 5
-                         "</p>
-                     <div class="rating">
-                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                             class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                     </div>
-                     <p class="testimonial-author">-
-                         Kishan Bist</p>
-                 </div>
-             </div>
-         </div>
-     </section>
+<section class="testimonials-section section">
+    <div class="section-container">
+        <h2 class="section-title">{{ $testimonialsTitle ?? 'What Our Customers Say' }}</h2>
+        <div class="testimonial-cards">
+            @if(isset($testimonials) && count($testimonials) > 0)
+                @foreach($testimonials as $testimonial)
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">{!! nl2br(e($testimonial->text)) !!}</p>
+                        <div class="rating">
+                            @for($i = 1; $i <= 5; $i++)
+                                @if($i <= floor($testimonial->rating))
+                                    <i class="fas fa-star"></i>
+                                @elseif($i == ceil($testimonial->rating) && $testimonial->rating - floor($testimonial->rating) >= 0.5)
+                                    <i class="fas fa-star-half-alt"></i>
+                                @else
+                                    <i class="far fa-star"></i>
+                                @endif
+                            @endfor
+                        </div>
+                        <p class="testimonial-author">- {{ $testimonial->author }}</p>
+                    </div>
+                @endforeach
+            @else
+                <div class="testimonial-card">
+                    <p class="testimonial-text">No testimonials yet.</p>
+                </div>
+            @endif
+        </div>
+    </div>
+</section>
 
 
-
-     <section class="tea-section section">
-         <div class="section-container">
-             <h2 class="section-title">Special Offer</h2>
-             <div class="tea-cards">
-                 <div class="tea-card">
-                     <h3>Bagan Chiya</h3>
-                     <p>Authentic Nepali tea with a rich, aromatic flavor.</p>
-                     <p class="tea-price">Price: Rs 250</p>
-                 </div>
-                 <div class="tea-card">
-                     <h3>Bagan Boba Tea</h3>
-                     <p>Creamy tea with chewy tapioca pearls.</p>
-                     <p class="tea-price">Price: <s>Rs 300</s> <span class="discount-price">Rs 250</span> (17% OFF)
-                     </p>
-                     <p class="discount-note">Limited time offer! Use code <strong>BOBA17</strong> at checkout.</p>
-                 </div>
-                 <div class="tea-card">
-                     <h3>Herbal Bliss</h3>
-                     <p>Soothing herbal infusion with local herbs.</p>
-                     <p class="tea-price">Price: Rs 275</p>
-                 </div>
-             </div>
-         </div>
-     </section>
+<section class="tea-section section">
+    <div class="section-container">
+        <h2 class="section-title">{{ $specialOfferTitle ?? 'Special Offer' }}</h2>
+        <div class="tea-cards">
+            @if(isset($specialOfferCards) && count($specialOfferCards) > 0)
+                @foreach($specialOfferCards as $card)
+                    <div class="tea-card">
+                        <h3>{{ $card->title }}</h3>
+                        <p>{{ $card->description }}</p>
+                        <p class="teaprice">
+                            Price:
+                            @if($card->original_price)
+                                <s>Rs {{ $card->original_price }}</s>
+                                <span class="discount-price">Rs {{ $card->price }}</span>
+                                @if($card->discount_percentage)
+                                    ({{ $card->discount_percentage }}% OFF)
+                                @endif
+                            @else
+                                Rs {{ $card->price }}
+                            @endif
+                        </p>
+                        @if($card->discount_code)
+                            <p class="discount-note">Limited time offer! Use code <strong>{{ $card->discount_code }}</strong> at checkout.</p>
+                        @endif
+                    </div>
+                @endforeach
+            @else
+                <div class="tea-card">
+                    <h3>No Special Offers</h3>
+                    <p>Please check back later for exciting deals!</p>
+                </div>
+            @endif
+        </div>
+    </div>
+</section>
 
 
 
@@ -300,7 +304,7 @@
                  ]
              });
 
-             // Add stagger animation to gallery items
+             // stagger animation to gallery items
              $('.tea-gallery-section .gallery-item').each(function(index) {
                  $(this).css('animation-delay', `${index * 0.1}s`);
              });

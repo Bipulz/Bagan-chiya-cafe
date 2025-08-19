@@ -10,6 +10,7 @@ use App\Http\Controllers\StoryController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\DashboardController;
 
+
 Route::get('/', [DashboardController::class, 'index'])->name('home');
 
 Route::get('/story', function () {
@@ -78,5 +79,12 @@ Route::delete('/story/team/{teamMember}', [\App\Http\Controllers\Admin\StoryCont
 Route::get('/dashboard', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dashboard.index');
 
 Route::post('/hero/update', [\App\Http\Controllers\Admin\DashboardController::class, 'updateHero'])->name('admin.hero.update');
-    
+Route::post('/admin/why-us/update', [\App\Http\Controllers\Admin\DashboardController::class, 'updateWhyUs'])->name('admin.whyus.update');
+    Route::post('/testimonials/update', [\App\Http\Controllers\Admin\DashboardController::class, 'updateTestimonials'])->name('admin.testimonials.update');
+
+Route::post('/special-offer/update', [\App\Http\Controllers\Admin\DashboardController::class, 'updateSpecialOffer'])->name('admin.special-offer.update');
+
+Route::post('/tea/update', [\App\Http\Controllers\Admin\DashboardController::class, 'updateTea'])->name('admin.tea.update');
+Route::post('/additional-sections/update', [\App\Http\Controllers\Admin\DashboardController::class, 'updateAdditionalSections'])->name('admin.additional-sections.update');
+
 });
